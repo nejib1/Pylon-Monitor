@@ -76,6 +76,11 @@ La plupart des méthodes pour lire l'état interne d'une batterie Pylontech néc
 
 Liste complète et illustrée : **[pylon-monitor.com/fr/features](https://pylon-monitor.com/fr/features)**
 
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-dashboard-pylontech-monitoring.webp" alt="Tableau de bord web en direct Pylon-Monitor affichant charge, santé, températures, cellules et historique 24h de la batterie Pylontech" width="480">
+  <br><sub>Le tableau de bord web en direct — pas d'écran de connexion par défaut, rafraîchi toutes les quelques secondes.</sub>
+</p>
+
 ## Batteries Pylontech compatibles
 
 Pylon-Monitor fonctionne avec toute **batterie Pylontech disposant d'un port Console / RS-232 basse tension** :

@@ -72,6 +72,11 @@ De meeste manieren om de interne status van een Pylontech-accu uit te lezen vere
 
 Volledige, geïllustreerde functielijst: **[pylon-monitor.com/nl/features](https://pylon-monitor.com/nl/features)**
 
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-dashboard-pylontech-monitoring.webp" alt="Live web-dashboard van Pylon-Monitor met lading, gezondheid, temperaturen, cellen en 24u-geschiedenis van de Pylontech-accu" width="480">
+  <br><sub>Het live webdashboard — standaard geen inlogscherm, ververst elke paar seconden.</sub>
+</p>
+
 ## Compatibele Pylontech-accu's
 
 Pylon-Monitor werkt met elke **Pylontech-accu met een laagspannings-Console-/RS-232-poort**:

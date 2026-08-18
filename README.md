@@ -76,6 +76,11 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 
 Full, illustrated feature list: **[pylon-monitor.com/features](https://pylon-monitor.com/features)**
 
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-dashboard-pylontech-monitoring.webp" alt="Pylon-Monitor live web dashboard showing Pylontech battery charge, health, temperatures, cells and 24h history" width="480">
+  <br><sub>The live web dashboard — no login screen by default, refreshes every few seconds.</sub>
+</p>
+
 ## Compatible Pylontech batteries
 
 Pylon-Monitor works with any **Pylontech battery that has a low-voltage Console / RS-232 port**:
