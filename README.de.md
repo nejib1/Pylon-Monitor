@@ -77,7 +77,7 @@ Die meisten Wege, den internen Zustand einer Pylontech-Batterie auszulesen, erfo
 Vollständige, bebilderte Funktionsliste: **[pylon-monitor.com/de/features](https://pylon-monitor.com/de/features)**
 
 <p align="center">
-  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-dashboard-pylontech-monitoring.webp" alt="Pylon-Monitor Live-Web-Dashboard mit Ladung, Zustand, Temperaturen, Zellen und 24h-Verlauf der Pylontech-Batterie" width="480">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Pylon-Monitor Live-Web-Dashboard mit Ladung, Zustand, Temperaturen, Zellen und 24h-Verlauf der Pylontech-Batterie" width="480">
   <br><sub>Das Live-Web-Dashboard — standardmäßig kein Login-Bildschirm, aktualisiert sich alle paar Sekunden.</sub>
 </p>
 

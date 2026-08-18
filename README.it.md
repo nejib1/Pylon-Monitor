@@ -73,7 +73,7 @@ La maggior parte dei modi per leggere lo stato interno di una batteria Pylontech
 Elenco completo e illustrato: **[pylon-monitor.com/it/features](https://pylon-monitor.com/it/features)**
 
 <p align="center">
-  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-dashboard-pylontech-monitoring.webp" alt="Dashboard web live di Pylon-Monitor con carica, salute, temperature, celle e storico 24h della batteria Pylontech" width="480">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Dashboard web live di Pylon-Monitor con carica, salute, temperature, celle e storico 24h della batteria Pylontech" width="480">
   <br><sub>La dashboard web live — nessuna schermata di login predefinita, si aggiorna ogni pochi secondi.</sub>
 </p>
 
