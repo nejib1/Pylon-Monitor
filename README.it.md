@@ -10,6 +10,10 @@
 
 Questo repository è l'hub di documentazione pubblica, riferimento per l'integrazione e risorsa per la community del dispositivo **[Pylon-Monitor](https://pylon-monitor.com)**. **Non** è il firmware né il design hardware del dispositivo — vedi [Cosa contiene (e cosa non contiene) questo repository](#cosa-contiene-e-cosa-non-contiene-questo-repository) più sotto.
 
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/product/pylon-monitor-pylontech-battery-monitor.jpg" alt="Dispositivo Pylon-Monitor collegato alla porta Console di una batteria Pylontech" width="600">
+</p>
+
 ---
 
 ## Indice

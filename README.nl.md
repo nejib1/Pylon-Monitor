@@ -10,6 +10,10 @@
 
 Deze repository is het publieke documentatiecentrum, de integratiereferentie en de community-bron voor het hardwareapparaat **[Pylon-Monitor](https://pylon-monitor.com)**. Het is **niet** de firmware of het hardwareontwerp van het apparaat — zie [Wat deze repository wel (en niet) bevat](#wat-deze-repository-wel-en-niet-bevat) hieronder.
 
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/product/pylon-monitor-pylontech-battery-monitor.jpg" alt="Pylon-Monitor apparaat aangesloten op de Console-poort van een Pylontech-accu" width="600">
+</p>
+
 ---
 
 ## Inhoudsopgave

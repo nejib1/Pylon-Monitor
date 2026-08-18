@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://pylon-monitor.com/de"><img src="assets/pylon-monitor-banner.png" alt="Pylon-Monitor — Fernüberwachung und Diagnose für Ihre Pylontech-Batterie" width="800"></a>
+</p>
+
 # Pylon-Monitor — Pylontech Monitoring, Diagnose & Home-Assistant-Integration
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | 🇩🇪 Deutsch | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
@@ -9,6 +13,10 @@
 > **Pylon-Monitor** ist ein kleines, eigenständiges Gerät für **Pylontech-Monitoring**: ein Plug-&-Play-WLAN-Gerät, das den Console-Port (RS-232) einer Pylontech-Lithiumbatterie ausliest und jeden Wert — Ladezustand (SOC), Gesundheitszustand (SOH), Spannung, Strom, Leistung, Zellspannungen, Temperaturen und Alarme — in eine saubere **JSON-REST-API**, ein Live-Web-Dashboard und ein eingebautes TFT-Display umwandelt. Es ist der schnellste Weg für **Pylontech-Monitoring**, **Pylontech-Diagnose** und **kabelloses / Fernüberwachung von Pylontech-Batterien** — mit nativer Integration in **Home Assistant**, **MQTT**, **Jeedom**, **Node-RED**, **Domoticz** und **openHAB**, eingerichtet in unter 2 Minuten.
 
 Dieses Repository ist die öffentliche Dokumentation, Integrationsreferenz und Community-Ressource für das Hardware-Gerät **[Pylon-Monitor](https://pylon-monitor.com)**. Es ist **nicht** die Firmware oder das Hardwaredesign des Geräts — siehe [Was dieses Repository enthält (und was nicht)](#was-dieses-repository-enthält-und-was-nicht) weiter unten.
+
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/product/pylon-monitor-pylontech-battery-monitor.jpg" alt="Pylon-Monitor-Gerät am Console-Port einer Pylontech-Batterie angeschlossen" width="600">
+</p>
 
 ---
 
