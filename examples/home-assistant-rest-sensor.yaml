@@ -1,0 +1,38 @@
+# Home Assistant REST integration for Pylon-Monitor (Pylontech battery monitoring)
+# No MQTT broker required - Home Assistant polls the device's built-in JSON API directly.
+# The device's own Settings page generates this block for you with your current IP
+# pre-filled; this is the generic form. Replace <DEVICE-IP> below.
+#
+# Note: if you already use MQTT auto-discovery (recommended, 10 sensors, zero YAML),
+# do not also add this REST block for the same values - you'll get duplicate entities.
+
+rest:
+  - resource: "http://<DEVICE-IP>/api.json"
+    scan_interval: 30
+    sensor:
+      - name: "Pylontech SOC"
+        value_template: "{{ value_json.summary.soc }}"
+        unit_of_measurement: "%"
+        device_class: battery
+
+      - name: "Pylontech SOH"
+        value_template: "{{ value_json.health.soh }}"
+        unit_of_measurement: "%"
+
+      - name: "Pylontech Voltage"
+        value_template: "{{ value_json.summary.voltage }}"
+        unit_of_measurement: "V"
+        device_class: voltage
+
+      - name: "Pylontech Current"
+        value_template: "{{ value_json.summary.current }}"
+        unit_of_measurement: "A"
+        device_class: current
+
+      - name: "Pylontech Power"
+        value_template: "{{ value_json.summary.power }}"
+        unit_of_measurement: "W"
+        device_class: power
+
+      - name: "Pylontech State"
+        value_template: "{{ value_json.summary.state }}"

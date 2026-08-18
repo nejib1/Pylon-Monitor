@@ -1,0 +1,16 @@
+{
+  "_comment": "Illustrative excerpt of GET /api.json on a Pylon-Monitor device. Confirmed field paths: summary.soc, summary.voltage, summary.current, summary.power, summary.state, health.soh, net.rssi. The real response includes additional sections (per-cell voltages, per-battery breakdown for chained systems, temperatures, MQTT status) - see the live response on your own device's dashboard or https://pylon-monitor.com/tour for annotated screenshots.",
+  "summary": {
+    "soc": 87,
+    "voltage": 52.3,
+    "current": -4.1,
+    "power": -214,
+    "state": "discharging"
+  },
+  "health": {
+    "soh": 98
+  },
+  "net": {
+    "rssi": -52
+  }
+}
