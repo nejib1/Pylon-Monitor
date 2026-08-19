@@ -59,7 +59,7 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 - **Plug & play in under 2 minutes.** Connect the Console port cable, power the device, join its WiFi setup portal (`PylonMonitor-Setup`), pick your home WiFi network. Done. No app, no account, no command line, no soldering.
 - **Always-on remote Pylontech monitoring.** Once configured, the battery's SOC, SOH, voltage, current, power, temperature and alarm state are available from anywhere on your local network (or remotely, through your own VPN / reverse proxy — the device itself has no cloud dependency, see [Privacy & security](#privacy--security--100-local-no-cloud)).
 - **Built for integration, not just for looking at a screen.** The JSON API and native Home Assistant / MQTT support mean the data flows straight into your existing home-automation, energy-monitoring or logging stack — Home Assistant, Jeedom, Node-RED, Domoticz, openHAB, Grafana, a cron job, a shell script, anything that can do an HTTP GET.
-- **Multi-battery aware.** Chained Pylontech systems (up to 4 units, 64 cells) are detected and reported individually, not just as one averaged blob.
+- **Multi-battery aware.** Chained Pylontech systems (up to 16 units) are detected and reported individually — not just as one averaged blob — provided the RJ45 cable is plugged into the master unit's Console port. Per-cell voltage detail is capped at 64 readings (about the first 4 units); every unit still gets full SOC/voltage/current/power/SOH/cycle readings.
 
 ## Key features
 
@@ -70,7 +70,7 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 | **Web dashboard** | Live cards refresh every few seconds without reloading the page: Charge (SOC, voltage, current, power, state), Health (SOH, cycles, cell imbalance, charge/discharge counts), Temperatures (base & MOSFET), System (IP, WiFi signal, MQTT status, uptime), Cells & 24h charge history graph. |
 | **Built-in TFT display, self-healing** | A 1.8" IPS screen shows State of Charge in giant digits with voltage/current beside it and SOH/cycles/temperature below — fully customizable, and re-initialised automatically so a power glitch never leaves it stuck. |
 | **Configurable alarms (push notifications)** | Set your own SOC and temperature thresholds, with hysteresis so a single noisy reading doesn't spam you, and get a push notification via Pushover the moment either is crossed. |
-| **Multi-battery support** | Up to 4 chained Pylontech units (64 cells total) detected and shown individually, with a selector for "all batteries combined" or any single unit. |
+| **Multi-battery support** | Up to 16 chained Pylontech units detected and shown individually (SOC, voltage, current, power, state, SOH, cycles, temperatures per unit), with a selector for "all batteries combined" or any single unit. Plug into the master unit's Console port only. Per-cell voltage detail is capped at 64 readings (about the first 4 units). |
 | **Screen display customization** | Choose exactly which elements the physical TFT shows, with a live preview before saving. |
 | **Two levels of reset** | Double-press the reset button to reopen WiFi setup only (nothing else touched); use Factory reset from the dashboard for a clean slate (WiFi, MQTT, alarms, login all wiped). |
 
