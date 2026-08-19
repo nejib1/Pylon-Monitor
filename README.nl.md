@@ -164,6 +164,12 @@ Alle tien sensoren delen één state-topic (`pylon-monitor/state`, met hostnaam-
 
 Het ingebouwde `rest`-platform van Home Assistant bevraagt `/api.json` rechtstreeks elke 30 seconden en maakt 6 sensoren aan. De YAML wordt voor u gegenereerd (met de huidige IP van uw apparaat al ingevuld) op de Settings-pagina van het apparaat — zie [`examples/home-assistant-rest-sensor.yaml`](examples/home-assistant-rest-sensor.yaml) voor de generieke vorm.
 
+<img src="assets/home-assistant-configuration.yaml-pylontech-monitor.png" alt="Home Assistant configuration.yaml-editor met het geplakte Pylon-Monitor REST-sensorblok" width="420"><br>
+*Rechtstreeks geplakt in `configuration.yaml` — precies het blok van de Settings-pagina, zonder aanpassingen.*
+
+<img src="assets/home-assistant-pylontech-monitor.png" alt="Home Assistant Gauge-kaartconfiguratie met de Pylontech SOC-entiteit geselecteerd, live op 50%" width="520"><br>
+*Een van de resulterende sensoren (Pylontech SOC) toegevoegd aan een Gauge-kaart — hier live op 50%.*
+
 > Meng optie 1 en optie 2 niet voor dezelfde sensor — u krijgt dan dubbele entiteiten. MQTT dekt al alles wat REST doet, en meer (10 sensoren tegenover 6), dus er is zelden reden om beide te gebruiken.
 
 Volledige handleiding met screenshots: **[pylon-monitor.com/nl/home-assistant](https://pylon-monitor.com/nl/home-assistant)**
