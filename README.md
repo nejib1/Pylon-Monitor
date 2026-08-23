@@ -6,7 +6,7 @@
 
 🇬🇧 English | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-08-22 14:56:01 UTC
+**Last updated:** 2026-08-23 09:01:23 UTC
 
 [![Official site](https://img.shields.io/badge/official%20site-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Docs license](https://img.shields.io/badge/docs%20license-CC--BY--4.0-blue)](LICENSE) [![Languages](https://img.shields.io/badge/languages-6-green)](#-available-languages)
 
@@ -26,6 +26,7 @@ This repository is the public documentation, integration reference and community
 - [Why Pylon-Monitor — Pylontech Monitoring made simple](#why-pylon-monitor--pylontech-monitoring-made-simple)
 - [Key features](#key-features)
 - [Compatible Pylontech batteries](#compatible-pylontech-batteries)
+- [Under the hood — built for real Pylontech firmware variance](#under-the-hood--built-for-real-pylontech-firmware-variance)
 - [Quick start — plug & play in under 2 minutes](#quick-start--plug--play-in-under-2-minutes)
 - [JSON REST API — recover your Pylontech battery data](#json-rest-api--recover-your-pylontech-battery-data)
 - [Home Assistant integration (MQTT auto-discovery & REST)](#home-assistant-integration-mqtt-auto-discovery--rest)
@@ -59,7 +60,7 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 - **Plug & play in under 2 minutes.** Connect the Console port cable, power the device, join its WiFi setup portal (`PylonMonitor-Setup`), pick your home WiFi network. Done. No app, no account, no command line, no soldering.
 - **Always-on remote Pylontech monitoring.** Once configured, the battery's SOC, SOH, voltage, current, power, temperature and alarm state are available from anywhere on your local network (or remotely, through your own VPN / reverse proxy — the device itself has no cloud dependency, see [Privacy & security](#privacy--security--100-local-no-cloud)).
 - **Built for integration, not just for looking at a screen.** The JSON API and native Home Assistant / MQTT support mean the data flows straight into your existing home-automation, energy-monitoring or logging stack — Home Assistant, Jeedom, Node-RED, Domoticz, openHAB, Grafana, a cron job, a shell script, anything that can do an HTTP GET.
-- **Multi-battery aware.** Chained Pylontech systems (up to 16 units) are detected and reported individually — not just as one averaged blob — provided the RJ45 cable is plugged into the master unit's Console port. Per-cell voltage detail is capped at 64 readings (about the first 4 units); every unit still gets full SOC/voltage/current/power/SOH/cycle readings.
+- **Up to 16 batteries, mixed models handled correctly.** Chained Pylontech systems — up to 16 batteries, e.g. 16&times; US5000 (&asymp;76.8 kWh) or a mix like US2000 + US3000 + US5000 — are detected and reported individually, with the combined SOC capacity-weighted across models rather than naively averaged, provided the RJ45 cable is plugged into the master unit's Console port. Per-cell voltage detail is capped at 64 readings (about the first 4 batteries); every battery still gets full SOC/voltage/current/power/SOH/cycle readings.
 
 ## Key features
 
@@ -70,7 +71,7 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 | **Web dashboard** | Live cards refresh every few seconds without reloading the page: Charge (SOC, voltage, current, power, state), Health (SOH, cycles, cell imbalance, charge/discharge counts), Temperatures (base & MOSFET), System (IP, WiFi signal, MQTT status, uptime), Cells & 24h charge history graph. |
 | **Built-in TFT display, self-healing** | A 1.8" IPS screen shows State of Charge in giant digits with voltage/current beside it and SOH/cycles/temperature below — fully customizable, and re-initialised automatically so a power glitch never leaves it stuck. |
 | **Configurable alarms (push notifications)** | Set your own SOC and temperature thresholds, with hysteresis so a single noisy reading doesn't spam you, and get a push notification via Pushover the moment either is crossed. |
-| **Multi-battery support** | Up to 16 chained Pylontech units detected and shown individually (SOC, voltage, current, power, state, SOH, cycles, temperatures per unit), with a selector for "all batteries combined" or any single unit. Plug into the master unit's Console port only. Per-cell voltage detail is capped at 64 readings (about the first 4 units). |
+| **Multi-battery support — up to 16 batteries** | Up to 16 batteries chained together — e.g. 16&times; US5000 (&asymp;76.8 kWh combined) or a mix of models such as US2000 + US3000 + US5000 — each detected and shown individually (SOC, voltage, current, power, state, SOH, cycles, temperatures), with the combined SOC capacity-weighted across models. A selector switches between "all batteries combined" and any single battery. Plug into the master unit's Console port only. Per-cell voltage detail is capped at 64 readings (about the first 4 batteries). |
 | **Screen display customization** | Choose exactly which elements the physical TFT shows, with a live preview before saving. |
 | **Two levels of reset** | Double-press the reset button to reopen WiFi setup only (nothing else touched); use Factory reset from the dashboard for a clean slate (WiFi, MQTT, alarms, login all wiped). |
 
@@ -85,7 +86,7 @@ Full, illustrated feature list: **[pylon-monitor.com/features](https://pylon-mon
 
 Pylon-Monitor works with any **Pylontech battery that has a low-voltage Console / RS-232 port**:
 
-- Pylontech US5000
+- Pylontech US5000 / US5000C (also sold as US5000-1C)
 - Pylontech US3000C
 - Pylontech US3000
 - Pylontech US2000C
@@ -94,6 +95,21 @@ Pylon-Monitor works with any **Pylontech battery that has a low-voltage Console 
 - Pylontech Force-L1 family
 
 **Not compatible** with high-voltage Pylontech systems (Force-H, H48050) or other battery brands (BYD, Dyness, Seplos, etc.) — the protocol and connector are Pylontech-specific.
+
+**Up to 16 batteries, mixed models included.** A single Pylon-Monitor supports up to 16 chained batteries in total — for example 16&times; US5000 (&asymp;76.8 kWh combined), 16&times; US2000 (&asymp;38.4 kWh), or any mix such as 2&times; US2000 + 2&times; US3000 + 1&times; US5000 on the same chain. Every physical battery is queried and reported individually; the combined State of Charge is weighted by each unit's own capacity (read live from the battery, not hardcoded), so a mixed-capacity stack reports an accurate combined number instead of a naive average across units — see [Under the hood](#under-the-hood--built-for-real-pylontech-firmware-variance) below.
+
+## Under the hood — built for real Pylontech firmware variance
+
+Pylontech's BMS console output isn't perfectly stable across firmware versions and models — the exact column layout of the `pwr`/`bat` console replies can change with a BMS firmware update, even on the *same* battery model. This isn't hypothetical: it's been observed on the very same US5000 model this project develops against, where a newer BMS firmware build inserts four extra diagnostic columns before the charge-state and Coulomb (SOC) fields.
+
+A monitor that assumes a fixed column position for "State of Charge" or "charging/discharging" would, on that firmware, silently report a completely wrong number — no error, no warning, just a wrong SOC. Pylon-Monitor's firmware instead parses the real header line the battery actually sends on every poll and locates each value **by name**, self-adjusting to whatever layout that specific unit's BMS firmware uses. Verified against both the exact reply format used in development and a differently laid out reply reported from the field.
+
+Two more reliability details worth knowing if you're building against this device:
+
+- **Capacity-weighted combined SOC.** On a pack mixing battery models/capacities (e.g. US2000 + US3000 + US5000), the combined charge percentage is weighted by each unit's own nominal capacity — read live from the battery's own `info` reply, not hardcoded per model — rather than a plain average, which would under-represent the larger units.
+- **Streamed diagnostics, not buffered.** The `/raw` diagnostic view (exact, unparsed console replies) is streamed to the browser piece by piece rather than assembled in RAM first. On an ESP8266 (&asymp;80 KB total RAM), building a multi-kilobyte page in one buffer before sending it is a real failure mode under memory pressure, especially as the number of chained batteries grows. Streaming keeps that page's memory footprint constant regardless of chain length.
+
+None of this only matters for `/api.json` accuracy on a small test rig — it's specifically why the same firmware behaves correctly whether you have 1 battery or a full 16-unit chain, and whether every unit is the same model or not.
 
 ## Quick start — plug & play in under 2 minutes
 
@@ -206,7 +222,9 @@ Because the data is plain, unauthenticated JSON over local HTTP, **any platform 
 
 ## Firmware updates
 
-Pylon-Monitor receives **free lifetime OTA firmware updates**, applied directly from the device's own web dashboard — no cables, no re-flashing tools. Changelog and update instructions: **[pylon-monitor.com/firmware](https://pylon-monitor.com/firmware)**.
+Pylon-Monitor receives **free lifetime firmware updates**: download the `.bin` and install it from the device's own web dashboard — no cables, no re-flashing tools. Changelog and update instructions: **[pylon-monitor.com/firmware](https://pylon-monitor.com/firmware)**.
+
+**Latest: v2.2** — a cross-firmware/cross-model reliability pass. Console reply parsing now locates values by column name instead of a fixed position (see [Under the hood](#under-the-hood--built-for-real-pylontech-firmware-variance) above), the combined SOC on mixed-model packs is now capacity-weighted, and the `/raw` diagnostic page is now memory-safe on large battery chains. Full changelog: **[pylon-monitor.com/firmware#changelog](https://pylon-monitor.com/firmware#changelog)**.
 
 ## Frequently asked questions
 

@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | 🇳🇱 Nederlands
 
-**Last updated:** 2026-08-22 11:50:01 UTC
+**Last updated:** 2026-08-23 09:01:23 UTC
 
 [![Officiële site](https://img.shields.io/badge/officiële%20site-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Docs-licentie](https://img.shields.io/badge/docs%20licentie-CC--BY--4.0-blue)](LICENSE) [![Talen](https://img.shields.io/badge/talen-6-green)](#beschikbare-talen)
 
@@ -22,6 +22,7 @@ Deze repository is het publieke documentatiecentrum, de integratiereferentie en 
 - [Waarom Pylon-Monitor — Pylontech-monitoring eenvoudig gemaakt](#waarom-pylon-monitor--pylontech-monitoring-eenvoudig-gemaakt)
 - [Belangrijkste functies](#belangrijkste-functies)
 - [Compatibele Pylontech-accu's](#compatibele-pylontech-accus)
+- [Onder de motorkap — gebouwd voor echte Pylontech-firmwareverschillen](#onder-de-motorkap--gebouwd-voor-echte-pylontech-firmwareverschillen)
 - [Snelstart — plug & play in minder dan 2 minuten](#snelstart--plug--play-in-minder-dan-2-minuten)
 - [JSON REST-API — accugegevens van uw Pylontech ophalen](#json-rest-api--accugegevens-van-uw-pylontech-ophalen)
 - [Home Assistant-integratie (MQTT auto-discovery & REST)](#home-assistant-integratie-mqtt-auto-discovery--rest)
@@ -55,7 +56,7 @@ De meeste manieren om de interne status van een Pylontech-accu uit te lezen vere
 - **Plug & play in minder dan 2 minuten.** Sluit de Console-kabel aan, geef het apparaat stroom, sluit aan op het WiFi-instelportaal (`PylonMonitor-Setup`), kies uw thuisnetwerk. Klaar. Geen app, geen account, geen commandoregel, geen soldeerwerk.
 - **Permanente Pylontech-bewaking op afstand.** Eenmaal geconfigureerd zijn SOC, SOH, spanning, stroom, vermogen, temperatuur en alarmstatus van de accu overal op uw lokale netwerk beschikbaar (of op afstand via uw eigen VPN/reverse proxy — het apparaat zelf heeft geen cloudafhankelijkheid, zie [Privacy & beveiliging](#privacy--beveiliging--100-lokaal-geen-cloud)).
 - **Gebouwd voor integratie, niet alleen om naar een scherm te kijken.** De JSON-API en native Home Assistant-/MQTT-ondersteuning zorgen ervoor dat de data rechtstreeks naar uw bestaande domotica-, energiebewakings- of logging-omgeving stroomt — Home Assistant, Jeedom, Node-RED, Domoticz, openHAB, Grafana, een cronjob, een shellscript, alles wat een HTTP GET kan doen.
-- **Multi-accu-bewust.** Aan elkaar gekoppelde Pylontech-systemen (tot 16 eenheden) worden individueel gedetecteerd en gerapporteerd, niet slechts als één gemiddelde blob — mits de RJ45-kabel in de Console-poort van de master-eenheid zit. Het detail van de celspanningen is beperkt tot 64 metingen (de eerste ~4 eenheden); elke eenheid behoudt wel al zijn SOC-/spannings-/stroom-/vermogen-/SOH-/cyclusgegevens.
+- **Tot 16 accu's, gemengde modellen correct verwerkt.** Aan elkaar gekoppelde Pylontech-systemen — tot 16 accu's, bijv. 16&times; US5000 (&asymp;76,8 kWh) of een mix zoals US2000 + US3000 + US5000 — worden individueel gedetecteerd en gerapporteerd, met een over modellen heen capaciteitsgewogen gecombineerd SOC in plaats van een naïef gemiddelde — mits de RJ45-kabel in de Console-poort van de master-eenheid zit. Het detail van de celspanningen is beperkt tot 64 metingen (de eerste ~4 accu's); elke accu behoudt wel al zijn SOC-/spannings-/stroom-/vermogen-/SOH-/cyclusgegevens.
 
 ## Belangrijkste functies
 
@@ -66,7 +67,7 @@ De meeste manieren om de interne status van een Pylontech-accu uit te lezen vere
 | **Webdashboard** | Live kaarten verversen elke paar seconden zonder ooit de pagina te herladen: Lading (SOC, spanning, stroom, vermogen, status), Gezondheid (SOH, cycli, celonbalans, laad-/ontlaadtellers), Temperaturen (basis & MOSFET), Systeem (IP, WiFi-signaal, MQTT-status, uptime), Cellen & 24u-laadgeschiedenisgrafiek. |
 | **Ingebouwd TFT-scherm, zelfherstellend** | Een 1,8"-IPS-scherm toont de laadtoestand in grote cijfers, met spanning/stroom ernaast en SOH/cycli/temperatuur eronder — volledig aanpasbaar, en wordt automatisch opnieuw geïnitialiseerd zodat een stroomstoring het nooit laat vastlopen. |
 | **Instelbare alarmen (pushmeldingen)** | Stel uw eigen SOC- en temperatuurdrempels in, met hysterese zodat één ruizige meting geen spam veroorzaakt, en ontvang een pushmelding via Pushover zodra een drempel wordt overschreden. |
-| **Ondersteuning voor meerdere accu's** | Tot 16 aan elkaar gekoppelde Pylontech-eenheden gedetecteerd en individueel getoond (SOC, spanning, stroom, vermogen, status, SOH, cycli, temperaturen per eenheid), met een keuzeschakelaar voor "alle accu's gecombineerd" of elke afzonderlijke eenheid. Alleen aansluiten op de Console-poort van de master-eenheid. Detail van de celspanningen beperkt tot 64 metingen (~eerste 4 eenheden). |
+| **Ondersteuning voor meerdere accu's — tot 16 accu's** | Tot 16 aan elkaar gekoppelde accu's — bijv. 16&times; US5000 (&asymp;76,8 kWh gecombineerd) of een mix van modellen zoals US2000 + US3000 + US5000 — elk gedetecteerd en individueel getoond (SOC, spanning, stroom, vermogen, status, SOH, cycli, temperaturen), met het gecombineerde SOC capaciteitsgewogen over modellen heen. Een keuzeschakelaar wisselt tussen "alle accu's gecombineerd" en elke afzonderlijke accu. Alleen aansluiten op de Console-poort van de master-eenheid. Detail van de celspanningen beperkt tot 64 metingen (~eerste 4 accu's). |
 | **Aanpassing schermweergave** | Kies precies welke elementen het fysieke TFT-scherm toont, met een live voorbeeld voordat u opslaat. |
 | **Twee reset-niveaus** | Een dubbele druk op de resetknop heropent alleen de WiFi-instelling (verder wordt niets aangeraakt); Factory reset vanaf het dashboard wist alles (WiFi, MQTT, alarmen, login). |
 
@@ -81,7 +82,7 @@ Volledige, geïllustreerde functielijst: **[pylon-monitor.com/nl/features](https
 
 Pylon-Monitor werkt met elke **Pylontech-accu met een laagspannings-Console-/RS-232-poort**:
 
-- Pylontech US5000
+- Pylontech US5000 / US5000C (ook verkocht als US5000-1C)
 - Pylontech US3000C
 - Pylontech US3000
 - Pylontech US2000C
@@ -90,6 +91,21 @@ Pylon-Monitor werkt met elke **Pylontech-accu met een laagspannings-Console-/RS-
 - Pylontech Force-L1-familie
 
 **Niet compatibel** met hoogspannings-Pylontech-systemen (Force-H, H48050) of andere accumerken (BYD, Dyness, Seplos, enz.) — het protocol en de connector zijn Pylontech-specifiek.
+
+**Tot 16 accu's, gemengde modellen inbegrepen.** Eén enkele Pylon-Monitor ondersteunt tot 16 aan elkaar geschakelde accu's in totaal — bijvoorbeeld 16&times; US5000 (&asymp;76,8 kWh gecombineerd), 16&times; US2000 (&asymp;38,4 kWh), of elke mix zoals 2&times; US2000 + 2&times; US3000 + 1&times; US5000 in dezelfde keten. Elke fysieke accu wordt individueel bevraagd en gerapporteerd; het gecombineerde SOC wordt gewogen naar de eigen capaciteit van elke eenheid (live van de accu gelezen, niet hardgecodeerd), zodat een pack met gemengde capaciteiten een nauwkeurig gecombineerd getal geeft in plaats van een naïef gemiddelde over de eenheden — zie [Onder de motorkap](#onder-de-motorkap--gebouwd-voor-echte-pylontech-firmwareverschillen) hieronder.
+
+## Onder de motorkap — gebouwd voor echte Pylontech-firmwareverschillen
+
+De BMS-console-uitvoer van Pylontech is niet perfect stabiel over firmwareversies en modellen heen — de exacte kolomindeling van de `pwr`/`bat`-consoleantwoorden kan veranderen bij een BMS-firmware-update, zelfs op *hetzelfde* accumodel. Dit is niet hypothetisch: het is waargenomen op precies hetzelfde US5000-model waarvoor dit project wordt ontwikkeld, waar een nieuwere BMS-firmware vier extra diagnostische kolommen invoegt vóór de laadstatus- en Coulomb-velden (SOC).
+
+Een monitor die een vaste kolompositie aanneemt voor "SOC" of "opladen/ontladen" zou op die firmware stilletjes een compleet verkeerd getal rapporteren — geen fout, geen waarschuwing, gewoon een verkeerd SOC. De firmware van Pylon-Monitor leest in plaats daarvan de echte header-regel die de accu bij elke bevraging daadwerkelijk stuurt, en zoekt elke waarde op **via de naam**, en past zich zo automatisch aan wat de BMS-firmware van die specifieke eenheid gebruikt. Geverifieerd tegen zowel het exacte antwoordformaat gebruikt tijdens ontwikkeling als een anders opgebouwd antwoord dat vanuit het veld gemeld werd.
+
+Nog twee betrouwbaarheidsdetails die nuttig zijn als u tegen dit apparaat ontwikkelt:
+
+- **Capaciteitsgewogen gecombineerd SOC.** Op een pack met gemengde accumodellen/-capaciteiten (bijv. US2000 + US3000 + US5000) wordt het gecombineerde laadpercentage gewogen naar de eigen nominale capaciteit van elke eenheid — live gelezen uit het `info`-antwoord van de accu, nooit hardgecodeerd per model — in plaats van een simpel gemiddelde, dat de grotere eenheden zou onderrepresenteren.
+- **Gestreamde diagnostiek, niet gebufferd.** De diagnostische weergave `/raw` (exacte, onverwerkte consoleantwoorden) wordt stuk voor stuk naar de browser gestreamd in plaats van eerst volledig in het RAM te worden opgebouwd. Op een ESP8266 (&asymp;80 KB totaal RAM) is het opbouwen van een pagina van meerdere kilobytes in één buffer vóór het verzenden een reëel faalrisico onder geheugendruk, vooral naarmate het aantal aan elkaar geschakelde accu's groeit. Streamen houdt de geheugenvoetafdruk van die pagina constant, ongeacht de ketenlengte.
+
+Niets hiervan gaat alleen over de nauwkeurigheid van `/api.json` op een kleine testopstelling — het is precies de reden waarom dezelfde firmware correct werkt, of u nu 1 accu heeft of een volledige keten van 16 eenheden, en of elke eenheid hetzelfde model is of niet.
 
 ## Snelstart — plug & play in minder dan 2 minuten
 
@@ -202,7 +218,9 @@ Omdat de data eenvoudige, ongeauthenticeerde JSON is over lokale HTTP, kan **elk
 
 ## Firmware-updates
 
-Pylon-Monitor ontvangt **gratis levenslange OTA-firmware-updates**, rechtstreeks toegepast vanuit het eigen webdashboard van het apparaat — geen kabels, geen reflash-tools. Changelog en update-instructies: **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)**.
+Pylon-Monitor ontvangt **gratis levenslange firmware-updates**: download de `.bin` en installeer deze vanuit het eigen webdashboard van het apparaat — geen kabels, geen reflash-tools. Changelog en update-instructies: **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)**.
+
+**Nieuwste versie: v2.2** — een betrouwbaarheidsronde voor meerdere firmwareversies/modellen. Het parsen van consoleantwoorden vindt waarden nu op basis van de kolomnaam in plaats van een vaste positie (zie [Onder de motorkap](#onder-de-motorkap--gebouwd-voor-echte-pylontech-firmwareverschillen) hierboven), het gecombineerde SOC bij packs met gemengde modellen is nu capaciteitsgewogen, en de diagnosepagina `/raw` is nu geheugenveilig bij grote accuketens. Volledig changelog: **[pylon-monitor.com/nl/firmware#changelog](https://pylon-monitor.com/nl/firmware#changelog)**.
 
 ## Veelgestelde vragen
 
