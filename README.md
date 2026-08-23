@@ -6,7 +6,7 @@
 
 🇬🇧 English | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-08-23 09:01:23 UTC
+**Last updated:** 2026-08-23 10:13:39 UTC
 
 [![Official site](https://img.shields.io/badge/official%20site-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Docs license](https://img.shields.io/badge/docs%20license-CC--BY--4.0-blue)](LICENSE) [![Languages](https://img.shields.io/badge/languages-6-green)](#-available-languages)
 
@@ -80,6 +80,11 @@ Full, illustrated feature list: **[pylon-monitor.com/features](https://pylon-mon
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Pylon-Monitor live web dashboard showing Pylontech battery charge, health, temperatures, cells and 24h history" width="480">
   <br><sub>The live web dashboard — no login screen by default, refreshes every few seconds.</sub>
+</p>
+
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-battery-alarms-pushover-notifications.webp" alt="Pylon-Monitor Settings — Alarms card with SOC and temperature thresholds, Pushover credentials and a test notification button" width="480">
+  <br><sub>Configurable SOC/temperature alarms — set thresholds, add your Pushover credentials, test with one click.</sub>
 </p>
 
 ## Compatible Pylontech batteries

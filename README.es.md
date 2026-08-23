@@ -6,7 +6,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | 🇪🇸 Español | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-08-23 09:01:23 UTC
+**Last updated:** 2026-08-23 10:13:39 UTC
 
 [![Sitio oficial](https://img.shields.io/badge/sitio%20oficial-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licencia docs](https://img.shields.io/badge/licencia%20docs-CC--BY--4.0-blue)](LICENSE) [![Idiomas](https://img.shields.io/badge/idiomas-6-green)](#idiomas-disponibles)
 
@@ -80,6 +80,11 @@ Lista completa e ilustrada: **[pylon-monitor.com/es/features](https://pylon-moni
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Panel web en directo de Pylon-Monitor mostrando carga, salud, temperaturas, celdas e historial de 24h de la batería Pylontech" width="480">
   <br><sub>El panel web en directo — sin pantalla de inicio de sesión por defecto, se actualiza cada pocos segundos.</sub>
+</p>
+
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-battery-alarms-pushover-notifications.webp" alt="Ajustes del Pylon-Monitor — tarjeta Alarms con umbrales de SOC y temperatura, credenciales de Pushover y botón de notificación de prueba" width="480">
+  <br><sub>Alarmas de SOC/temperatura configurables — defina los umbrales, añada sus credenciales de Pushover, pruebe con un clic.</sub>
 </p>
 
 ## Baterías Pylontech compatibles

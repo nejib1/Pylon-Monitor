@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | 🇮🇹 Italiano | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-08-23 09:01:23 UTC
+**Last updated:** 2026-08-23 10:13:39 UTC
 
 [![Sito ufficiale](https://img.shields.io/badge/sito%20ufficiale-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licenza docs](https://img.shields.io/badge/licenza%20docs-CC--BY--4.0-blue)](LICENSE) [![Lingue](https://img.shields.io/badge/lingue-6-green)](#lingue-disponibili)
 
@@ -76,6 +76,11 @@ Elenco completo e illustrato: **[pylon-monitor.com/it/features](https://pylon-mo
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Dashboard web live di Pylon-Monitor con carica, salute, temperature, celle e storico 24h della batteria Pylontech" width="480">
   <br><sub>La dashboard web live — nessuna schermata di login predefinita, si aggiorna ogni pochi secondi.</sub>
+</p>
+
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-battery-alarms-pushover-notifications.webp" alt="Impostazioni Pylon-Monitor — scheda Alarms con soglie di SOC e temperatura, credenziali Pushover e pulsante di notifica di prova" width="480">
+  <br><sub>Allarmi SOC/temperatura configurabili — imposta le soglie, aggiungi le tue credenziali Pushover, testa con un clic.</sub>
 </p>
 
 ## Batterie Pylontech compatibili

@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | 🇳🇱 Nederlands
 
-**Last updated:** 2026-08-23 09:01:23 UTC
+**Last updated:** 2026-08-23 10:13:39 UTC
 
 [![Officiële site](https://img.shields.io/badge/officiële%20site-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Docs-licentie](https://img.shields.io/badge/docs%20licentie-CC--BY--4.0-blue)](LICENSE) [![Talen](https://img.shields.io/badge/talen-6-green)](#beschikbare-talen)
 
@@ -76,6 +76,11 @@ Volledige, geïllustreerde functielijst: **[pylon-monitor.com/nl/features](https
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Live web-dashboard van Pylon-Monitor met lading, gezondheid, temperaturen, cellen en 24u-geschiedenis van de Pylontech-accu" width="480">
   <br><sub>Het live webdashboard — standaard geen inlogscherm, ververst elke paar seconden.</sub>
+</p>
+
+<p align="center">
+  <img src="https://pylon-monitor.com/assets/img/screenshots/pylon-monitor-battery-alarms-pushover-notifications.webp" alt="Pylon-Monitor Instellingen — Alarms-kaart met SOC- en temperatuurdrempels, Pushover-gegevens en een testmeldingsknop" width="480">
+  <br><sub>Instelbare SOC-/temperatuuralarmen — stel drempels in, koppel uw Pushover-account, test met één klik.</sub>
 </p>
 
 ## Compatibele Pylontech-accu's
