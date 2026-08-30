@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | 🇮🇹 Italiano | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-08-29 20:43:02 UTC
+**Last updated:** 2026-08-30 19:58:02 UTC
 
 [![Sito ufficiale](https://img.shields.io/badge/sito%20ufficiale-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licenza docs](https://img.shields.io/badge/licenza%20docs-CC--BY--4.0-blue)](LICENSE) [![Lingue](https://img.shields.io/badge/lingue-6-green)](#lingue-disponibili)
 
