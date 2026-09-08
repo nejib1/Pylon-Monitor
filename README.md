@@ -112,7 +112,7 @@ A monitor that assumes a fixed column position for "State of Charge" or "chargin
 Two more reliability details worth knowing if you're building against this device:
 
 - **Capacity-weighted combined SOC.** On a pack mixing battery models/capacities (e.g. US2000 + US3000 + US5000), the combined charge percentage is weighted by each unit's own nominal capacity — read live from the battery's own `info` reply, not hardcoded per model — rather than a plain average, which would under-represent the larger units.
-- **Streamed diagnostics, not buffered.** The `/raw` diagnostic view (exact, unparsed console replies) is streamed to the browser piece by piece rather than assembled in RAM first. On an ESP8266 (&asymp;80 KB total RAM), building a multi-kilobyte page in one buffer before sending it is a real failure mode under memory pressure, especially as the number of chained batteries grows. Streaming keeps that page's memory footprint constant regardless of chain length.
+- **Streamed diagnostics, not buffered.** The `/raw` diagnostic view (exact, unparsed console replies) is streamed to the browser piece by piece rather than assembled in RAM first — building a multi-kilobyte page in one buffer before sending it is a real failure mode under memory pressure on constrained embedded hardware, especially as the number of chained batteries grows. Streaming keeps that page's memory footprint constant regardless of chain length.
 
 None of this only matters for `/api.json` accuracy on a small test rig — it's specifically why the same firmware behaves correctly whether you have 1 battery or a full 16-unit chain, and whether every unit is the same model or not.
 
