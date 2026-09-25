@@ -72,7 +72,7 @@ De meeste manieren om de interne status van een Pylontech-accu uit te lezen vere
 | **Aanpassing schermweergave** | Kies precies welke elementen het fysieke TFT-scherm toont, met een live voorbeeld voordat u opslaat. |
 | **Twee reset-niveaus** | Een dubbele druk op de resetknop heropent alleen de WiFi-instelling (verder wordt niets aangeraakt); Factory reset vanaf het dashboard wist alles (WiFi, MQTT, alarmen, login). |
 | **Optionele link op afstand & cloudgeschiedenis** | Vink één vakje aan in de instellingen om uw metingen te publiceren op een privélink op pylon-monitor.com, beveiligd met uw eigen sleutel — bekijk de accu van overal zonder VPN, tunnel, port forwarding of Home Assistant, met tot drie jaar geschiedenis. Standaard uit; vink het uit en het publiceren stopt direct. |
-| **Firmware-update met één klik** | De pagina *Update firmware* heeft een knop **Update now**: het apparaat downloadt en installeert zelf de nieuwste versie (generatie 1 en 2). Een `.bin` handmatig uploaden kan nog steeds. Instellingen blijven in beide gevallen behouden. |
+| **Firmware-update met één klik** | De pagina *Update firmware* heeft een knop **Update now**: het apparaat downloadt en installeert zelf de nieuwste versie. Een `.bin` handmatig uploaden kan nog steeds. Instellingen blijven in beide gevallen behouden. |
 | **Ingebouwde diagnose** | Een pagina *Event log* met een opstartgeschiedenis die crashes overleeft, een pagina *Raw data* met de ongeparste antwoorden van de accuconsole, en een pagina *Network* die het wifisignaal in de tijd volgt, met een routertest in één klik — geen seriële monitor nodig. |
 
 Volledige, geïllustreerde functielijst: **[pylon-monitor.com/nl/features](https://pylon-monitor.com/nl/features)**
@@ -245,7 +245,7 @@ Omdat de data eenvoudige, ongeauthenticeerde JSON is over lokale HTTP, kan **elk
 
 Pylon-Monitor ontvangt **gratis levenslange firmware-updates**, geïnstalleerd vanuit het eigen dashboard van het apparaat — geen kabels, geen flashtools, instellingen blijven behouden.
 
-- **Met één klik** (generatie 1 en 2): *Update firmware* → **Update now**, en het apparaat downloadt en installeert de nieuwste versie voor zijn generatie.
+- **Met één klik**: *Update firmware* → **Update now**, en het apparaat downloadt en installeert de nieuwste versie voor zijn generatie.
 - **Handmatig:** download de `.bin` van uw model op **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)** — één tabblad per model — en upload hem op dezelfde pagina.
 - **Herstel:** is een apparaat onbereikbaar of start het niet meer, dan installeert de **[USB-herstelflasher](https://pylon-monitor.com/nl/reset)** het opnieuw via USB vanuit de browser en herkent zelf de hardwaregeneratie.
 

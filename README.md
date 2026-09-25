@@ -76,7 +76,7 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 | **Screen display customization** | Choose exactly which elements the physical TFT shows, with a live preview before saving. |
 | **Two levels of reset** | Double-press the reset button to reopen WiFi setup only (nothing else touched); use Factory reset from the dashboard for a clean slate (WiFi, MQTT, alarms, login all wiped). |
 | **Optional remote link & cloud history** | Tick one box in Settings to publish your readings to a private, key-protected link on pylon-monitor.com — check the battery from anywhere with no VPN, tunnel, port forwarding or Home Assistant, with up to three years of history. Off by default; untick it and publishing stops immediately. |
-| **One-click firmware update** | The *Update firmware* page has an **Update now** button: the device downloads and installs the latest version itself (generations 1 and 2). A `.bin` can still be uploaded by hand. Settings are kept either way. |
+| **One-click firmware update** | The *Update firmware* page has an **Update now** button: the device downloads and installs the latest version itself. A `.bin` can still be uploaded by hand. Settings are kept either way. |
 | **Built-in diagnostics** | An *Event log* page with a boot history that survives crashes, a *Raw data* page with the battery console's unparsed replies, and a *Network* page tracking WiFi signal over time with a one-click gateway test — no serial monitor needed. |
 
 Full, illustrated feature list: **[pylon-monitor.com/features](https://pylon-monitor.com/features)**
@@ -249,7 +249,7 @@ Because the data is plain, unauthenticated JSON over local HTTP, **any platform 
 
 Pylon-Monitor receives **free lifetime firmware updates**, installed from the device's own dashboard — no cables, no flashing tools, settings kept.
 
-- **One click** (generations 1 and 2): *Update firmware* → **Update now**, and the device downloads and installs the latest version for its generation.
+- **One click**: *Update firmware* → **Update now**, and the device downloads and installs the latest version for its generation.
 - **By hand:** download the `.bin` for your model from **[pylon-monitor.com/firmware](https://pylon-monitor.com/firmware)** — one tab per model — and upload it on the same page.
 - **Recovery:** if a device is unreachable or no longer starts, the **[USB recovery flasher](https://pylon-monitor.com/reset)** reinstalls it from the browser over USB and detects the hardware generation by itself.
 

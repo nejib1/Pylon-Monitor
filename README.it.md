@@ -72,7 +72,7 @@ La maggior parte dei modi per leggere lo stato interno di una batteria Pylontech
 | **Personalizzazione del display** | Scegliete esattamente quali elementi mostra il display TFT fisico, con anteprima live prima di salvare. |
 | **Due livelli di reset** | Una doppia pressione del pulsante di reset riapre solo la configurazione WiFi (nient'altro viene toccato); il Factory reset dalla dashboard cancella tutto (WiFi, MQTT, allarmi, login). |
 | **Link remoto e cronologia cloud (opzionali)** | Spunta una casella nelle impostazioni per pubblicare le tue letture su un link privato protetto dalla tua chiave su pylon-monitor.com — controlla la batteria da ovunque senza VPN, tunnel, port forwarding né Home Assistant, con fino a tre anni di cronologia. Disattivato per impostazione predefinita; togli la spunta e la pubblicazione si ferma subito. |
-| **Aggiornamento firmware in un clic** | La pagina *Update firmware* ha un pulsante **Update now**: il dispositivo scarica e installa da solo l'ultima versione (generazioni 1 e 2). Si può sempre caricare un `.bin` a mano. Le impostazioni vengono mantenute in entrambi i casi. |
+| **Aggiornamento firmware in un clic** | La pagina *Update firmware* ha un pulsante **Update now**: il dispositivo scarica e installa da solo l'ultima versione. Si può sempre caricare un `.bin` a mano. Le impostazioni vengono mantenute in entrambi i casi. |
 | **Diagnostica integrata** | Una pagina *Event log* con una cronologia degli avvii che sopravvive ai crash, una pagina *Raw data* con le risposte grezze della console della batteria, e una pagina *Network* che segue il segnale WiFi nel tempo, con test del router in un clic — nessun monitor seriale necessario. |
 
 Elenco completo e illustrato: **[pylon-monitor.com/it/features](https://pylon-monitor.com/it/features)**
@@ -245,7 +245,7 @@ Poiché i dati sono JSON semplice, non autenticato, su HTTP locale, **qualsiasi 
 
 Pylon-Monitor riceve **aggiornamenti firmware gratuiti a vita**, installati dalla dashboard del dispositivo stesso — nessun cavo, nessuno strumento di flashing, impostazioni mantenute.
 
-- **In un clic** (generazioni 1 e 2): *Update firmware* → **Update now**, e il dispositivo scarica e installa l'ultima versione della sua generazione.
+- **In un clic**: *Update firmware* → **Update now**, e il dispositivo scarica e installa l'ultima versione della sua generazione.
 - **A mano:** scarica il `.bin` del tuo modello da **[pylon-monitor.com/it/firmware](https://pylon-monitor.com/it/firmware)** — una scheda per modello — e caricalo dalla stessa pagina.
 - **Ripristino:** se un dispositivo non è raggiungibile o non si avvia più, il **[flasher di ripristino USB](https://pylon-monitor.com/it/reset)** lo reinstalla via USB dal browser e riconosce da solo la generazione hardware.
 
