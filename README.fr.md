@@ -6,7 +6,7 @@
 
 [🇬🇧 English](README.md) | 🇫🇷 Français | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-09-25 06:34:01 UTC
+**Last updated:** 2026-09-25 22:17:34 UTC
 
 [![Site officiel](https://img.shields.io/badge/site%20officiel-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licence docs](https://img.shields.io/badge/licence%20docs-CC--BY--4.0-blue)](LICENSE) [![Langues](https://img.shields.io/badge/langues-6-green)](#langues-disponibles)
 
@@ -25,6 +25,7 @@ Ce dépôt est le hub de documentation publique, de référence d'intégration e
 - [Qu'est-ce que Pylon-Monitor ?](#quest-ce-que-pylon-monitor-)
 - [Pourquoi Pylon-Monitor — le monitoring Pylontech simplifié](#pourquoi-pylon-monitor--le-monitoring-pylontech-simplifié)
 - [Fonctionnalités clés](#fonctionnalités-clés)
+- [Modèles et générations matérielles](#modèles-et-générations-matérielles)
 - [Batteries Pylontech compatibles](#batteries-pylontech-compatibles)
 - [Dans les coulisses — conçu pour les vraies variations de firmware Pylontech](#dans-les-coulisses--conçu-pour-les-vraies-variations-de-firmware-pylontech)
 - [Démarrage rapide — plug & play en moins de 2 minutes](#démarrage-rapide--plug--play-en-moins-de-2-minutes)
@@ -33,7 +34,7 @@ Ce dépôt est le hub de documentation publique, de référence d'intégration e
 - [Intégration Jeedom](#intégration-jeedom)
 - [Intégration Node-RED](#intégration-node-red)
 - [Domoticz, openHAB & toute plateforme HTTP/JSON](#domoticz-openhab--toute-plateforme-httpjson)
-- [Confidentialité & sécurité — 100 % local, sans cloud](#confidentialité--sécurité--100--local-sans-cloud)
+- [Confidentialité & sécurité — local par défaut, cloud optionnel](#confidentialité--sécurité--local-par-défaut-cloud-optionnel)
 - [Mises à jour firmware](#mises-à-jour-firmware)
 - [Questions fréquentes](#questions-fréquentes)
 - [Ce que contient (et ne contient pas) ce dépôt](#ce-que-contient-et-ne-contient-pas-ce-dépôt)
@@ -49,7 +50,7 @@ Ce dépôt est le hub de documentation publique, de référence d'intégration e
 
 1. Une **API REST JSON** (`GET /api.json`) — un seul appel HTTP, tout l'état de la batterie, prêt pour n'importe quel script, tableau de bord ou plateforme domotique.
 2. Un **tableau de bord web en direct**, accessible depuis n'importe quel navigateur du réseau local — aucune application à installer.
-3. Un **écran TFT 1.8" intégré** sur l'appareil lui-même, pour une lecture en un coup d'œil sans même ouvrir un ordinateur.
+3. Un **écran TFT 1.8" intégré** sur l'appareil lui-même, pour une lecture en un coup d'œil sans même ouvrir un ordinateur. *(pas sur la Lite, qui n'a pas d'écran)*
 
 Si vous cherchiez **Pylontech Monitor**, **Pylontech Monitoring**, **Pylontech Diagnostics**, **comment surveiller une batterie Pylontech à distance**, **Pylontech Home Assistant**, **Pylontech MQTT**, **Pylontech Jeedom**, **récupérer les informations des batteries Pylontech**, **suivi SOC SOH Pylontech**, ou **monitoring Pylontech sans fil / à distance**, c'est exactement ce que fait Pylon-Monitor.
 
@@ -58,7 +59,7 @@ Si vous cherchiez **Pylontech Monitor**, **Pylontech Monitoring**, **Pylontech D
 La plupart des méthodes pour lire l'état interne d'une batterie Pylontech nécessitent un ordinateur portable branché sur le port Console, avec un logiciel du fabricant (PYLON Console / BatteryView) lancé manuellement à chaque consultation. **Pylon-Monitor transforme cela en un service permanent, à distance et sans fil** :
 
 - **Plug & play en moins de 2 minutes.** Branchez le câble Console, alimentez l'appareil, rejoignez son portail WiFi de configuration (`PylonMonitor-Setup`), choisissez votre réseau WiFi domestique. C'est terminé. Aucune application, aucun compte, aucune ligne de commande, aucune soudure.
-- **Monitoring Pylontech à distance, en permanence.** Une fois configuré, le SOC, le SOH, la tension, le courant, la puissance, la température et l'état des alarmes de la batterie sont accessibles depuis n'importe où sur votre réseau local (ou à distance via votre propre VPN / reverse proxy — l'appareil lui-même ne dépend d'aucun cloud, voir [Confidentialité & sécurité](#confidentialité--sécurité--100--local-sans-cloud)).
+- **Monitoring Pylontech à distance, en permanence.** Une fois configuré, le SOC, le SOH, la tension, le courant, la puissance, la température et l'état des alarmes de la batterie sont accessibles depuis n'importe où sur votre réseau local (ou à distance via votre propre VPN / reverse proxy — l'appareil lui-même ne dépend d'aucun cloud, voir [Confidentialité & sécurité](#confidentialité--sécurité--local-par-défaut-cloud-optionnel)).
 - **Pensé pour l'intégration, pas seulement pour regarder un écran.** L'API JSON et le support natif Home Assistant / MQTT font que les données circulent directement vers votre solution domotique, de suivi énergétique ou de journalisation existante — Home Assistant, Jeedom, Node-RED, Domoticz, openHAB, Grafana, un script cron, un script shell, tout ce qui peut faire une requête HTTP GET.
 - **Jusqu'à 16 batteries, modèles mélangés gérés correctement.** Les installations Pylontech chaînées — jusqu'à 16 batteries, ex. 16&times; US5000 (&asymp;76,8 kWh) ou un mélange comme US2000 + US3000 + US5000 — sont détectées et rapportées individuellement, avec le SOC combiné pondéré par capacité entre modèles plutôt qu'une simple moyenne, à condition de brancher le câble RJ45 sur le port Console de l'unité maître. Le détail des tensions par cellule est limité à 64 lectures (les ~4 premières batteries) ; chaque batterie conserve néanmoins toutes ses valeurs SOC/tension/courant/puissance/SOH/cycles.
 
@@ -74,6 +75,9 @@ La plupart des méthodes pour lire l'état interne d'une batterie Pylontech néc
 | **Support multi-batteries — jusqu'à 16 batteries** | Jusqu'à 16 batteries chaînées ensemble — ex. 16&times; US5000 (&asymp;76,8 kWh combinés) ou un mélange de modèles comme US2000 + US3000 + US5000 — chacune détectée et affichée individuellement (SOC, tension, courant, puissance, état, SOH, cycles, températures), avec le SOC combiné pondéré par capacité entre modèles. Un sélecteur bascule entre « toutes les batteries combinées » et chaque batterie séparément. Branchement uniquement sur le port Console de l'unité maître. Détail des tensions par cellule limité à 64 lectures (~4 premières batteries). |
 | **Personnalisation de l'affichage écran** | Choisissez exactement quels éléments l'écran TFT physique affiche, avec un aperçu en direct avant d'enregistrer. |
 | **Deux niveaux de réinitialisation** | Un double appui sur le bouton reset rouvre uniquement la configuration WiFi (rien d'autre n'est touché) ; le Factory reset depuis le tableau de bord efface tout (WiFi, MQTT, alarmes, connexion). |
+| **Lien à distance et historique cloud (optionnels)** | Cochez une case dans les réglages pour publier vos relevés sur un lien privé protégé par votre propre clé sur pylon-monitor.com — consultez la batterie de n'importe où sans VPN, tunnel, redirection de port ni Home Assistant, avec jusqu'à trois ans d'historique. Désactivé par défaut ; décochez et la publication s'arrête aussitôt. |
+| **Mise à jour firmware en un clic** | La page *Update firmware* a un bouton **Update now** : l'appareil télécharge et installe lui-même la dernière version (générations 1 et 2). On peut toujours envoyer un `.bin` à la main. Les réglages sont conservés dans les deux cas. |
+| **Diagnostic intégré** | Une page *Event log* avec un historique des démarrages qui survit aux plantages, une page *Raw data* avec les réponses brutes de la console batterie, et une page *Network* qui suit le signal WiFi dans le temps avec un test de la box en un clic — pas besoin de moniteur série. |
 
 Liste complète et illustrée : **[pylon-monitor.com/fr/features](https://pylon-monitor.com/fr/features)**
 
@@ -87,6 +91,18 @@ Liste complète et illustrée : **[pylon-monitor.com/fr/features](https://pylon-
   <br><sub>Alarmes SOC/température configurables — définissez les seuils, ajoutez vos identifiants Pushover, testez en un clic.</sub>
 </p>
 
+## Modèles et générations matérielles
+
+Trois modèles sont en circulation. Ils partagent le même tableau de bord, la même API JSON, les mêmes topics MQTT et la même intégration Home Assistant — tout ce README s'applique aux trois, sauf mention contraire.
+
+| Modèle | Comment le reconnaître | Batteries lues |
+|---|---|---|
+| **Pylon-Monitor — génération 2** | Avec écran, expédié à partir du 5 septembre 2026 | Série US basse tension **et** haute tension Force H2 / H48050 |
+| **Pylon-Monitor Lite** | Sans écran | Série US basse tension **et** haute tension Force H2 / H48050 |
+| **Pylon-Monitor — génération 1** | Avec écran, expédié avant le 5 septembre 2026 | Série US basse tension |
+
+Chaque modèle a **sa propre ligne de firmware**, et les fichiers ne sont pas interchangeables. Se tromper de génération ne casse rien : l'appareil refuse le fichier et continue avec ce qu'il a. Chaque appareil affiche sa génération sur sa propre page *Update firmware*, et la [page firmware](https://pylon-monitor.com/fr/firmware) a un onglet par modèle.
+
 ## Batteries Pylontech compatibles
 
 Pylon-Monitor fonctionne avec toute **batterie Pylontech disposant d'un port Console / RS-232 basse tension** :
@@ -99,7 +115,9 @@ Pylon-Monitor fonctionne avec toute **batterie Pylontech disposant d'un port Con
 - Pylontech UP2500
 - Famille Pylontech Force-L1
 
-**Non compatible** avec les systèmes Pylontech haute tension (Force-H, H48050) ni avec les autres marques de batteries (BYD, Dyness, Seplos, etc.) — le protocole et le connecteur sont spécifiques à Pylontech.
+**Packs haute tension** (tours Force H2, modules H48050 derrière une unité de gestion) : lus depuis le firmware 2.8, en génération 2 et sur la Lite. L'appareil reconnaît un pack haute tension dès sa première réponse et bascule tout seul — rien à configurer. Deux limites, dites d'emblée : l'unité de gestion ne donne ni état de santé ni nombre de cycles, ces deux lignes affichent donc un tiret plutôt qu'un chiffre inventé ; et ce support a été écrit à partir de vraies lectures console de deux firmwares d'unité de gestion, mais n'a pas encore été confirmé sur le pack haute tension d'un client. Les appareils de génération 1 lisent uniquement la série US basse tension.
+
+**Non compatible** avec les autres marques de batteries (BYD, Dyness, Seplos, etc.) — le protocole et le connecteur sont propres à Pylontech.
 
 **Jusqu'à 16 batteries, modèles mélangés inclus.** Un seul Pylon-Monitor prend en charge jusqu'à 16 batteries chaînées au total — par exemple 16&times; US5000 (&asymp;76,8 kWh combinés), 16&times; US2000 (&asymp;38,4 kWh), ou n'importe quel mélange comme 2&times; US2000 + 2&times; US3000 + 1&times; US5000 sur la même chaîne. Chaque batterie physique est interrogée et remontée individuellement ; le SOC combiné est pondéré par la capacité propre de chaque unité (lue en direct sur la batterie, jamais codée en dur), pour un chiffre combiné fidèle plutôt qu'une simple moyenne entre unités — voir [Dans les coulisses](#dans-les-coulisses--conçu-pour-les-vraies-variations-de-firmware-pylontech) ci-dessous.
 
@@ -125,6 +143,8 @@ Pylon-Monitor est conçu pour que **n'importe qui puisse le configurer en moins 
 3. **Rejoignez** le réseau WiFi temporaire qu'il diffuse (`PylonMonitor-Setup`) depuis votre téléphone ou ordinateur.
 4. **Choisissez** votre réseau WiFi domestique et saisissez son mot de passe dans le portail captif qui s'ouvre automatiquement.
 5. **C'est fait.** L'appareil redémarre sur votre réseau, l'écran TFT affiche sa nouvelle adresse IP, et le tableau de bord est accessible sur `http://<ip-appareil>` ou `http://pylon-monitor.local`.
+
+> **Pylon-Monitor Lite (sans écran) :** les étapes sont les mêmes. Pour retrouver l'appareil après l'étape 5, ouvrez `http://pylon-monitor.local` ou cherchez-le dans la liste des appareils connectés de votre box.
 
 Aucun flashage de firmware, aucun pilote, aucune application tierce nécessaire pour cette étape. Guide condensé : **[pylon-monitor.com/fr/quickstart](https://pylon-monitor.com/fr/quickstart)** — guide complet pas-à-pas et dépannage : **[pylon-monitor.com/fr/installation](https://pylon-monitor.com/fr/installation)**.
 
@@ -217,19 +237,31 @@ Utilisez un nœud **http request** — méthode `GET`, URL `http://<ip-appareil>
 
 Les données étant du JSON simple, non authentifié, sur HTTP local, **toute plateforme capable d'interroger une URL et de parser du JSON peut intégrer Pylon-Monitor** — les capteurs Dummy/Virtual de Domoticz avec un script, le binding HTTP d'openHAB, un panneau Grafana avec source de données JSON, un script Python avec `requests`, une ligne de commande shell avec `curl | jq`, etc. Aucun SDK propriétaire à installer, aucune clé API à demander.
 
-## Confidentialité & sécurité — 100 % local, sans cloud
+## Confidentialité & sécurité — local par défaut, cloud optionnel
 
-- **Aucun service cloud.** L'appareil ne « rentre pas à la maison », ne nécessite aucun compte, et fonctionne entièrement hors ligne sur votre réseau local.
-- **Aucune télémétrie, aucun abonnement.** Achat unique ; l'appareil ne remonte aucune donnée d'usage nulle part.
+- **Local par défaut.** À la sortie du carton, l'appareil ne parle qu'à votre réseau local et à la batterie : pas de compte, pas de télémétrie, pas d'abonnement. Configuration, tableau de bord, API et MQTT fonctionnent sans accès internet.
+- **Le cloud se choisit.** Le lien à distance et l'historique cloud tiennent en une case à cocher dans les réglages, désactivée par défaut. Une fois activée, les relevés partent vers un lien privé protégé par votre propre clé ; désactivez-la et la publication s'arrête aussitôt. Rien d'autre n'en dépend.
 - **Le port Console est en lecture seule.** Pylon-Monitor ne fait que *lire* la télémétrie de la batterie — il n'envoie jamais de commande de contrôle ou de charge, ce qui n'affecte donc pas la garantie du fabricant Pylontech et ne peut pas modifier le comportement de la batterie. C'est un outil de monitoring et de diagnostic, pas un système de gestion de batterie (BMS) ni un régulateur de charge.
 - **Connexion au tableau de bord optionnelle.** Le tableau de bord web n'a pas d'écran de connexion par défaut (pratique sur un réseau domestique de confiance) ; un mot de passe peut être activé dans Settings pour les réseaux partagés ou moins fiables.
-- **Mise à jour firmware locale.** Les mises à jour s'appliquent depuis le tableau de bord de l'appareil lui-même, pas poussées silencieusement depuis un cloud fournisseur.
+- **Mises à jour seulement quand vous le demandez.** L'appareil ne se met jamais à jour dans votre dos : il contacte le serveur de mise à jour uniquement quand vous cliquez sur **Update now**, ou installe un `.bin` que vous envoyez vous-même.
 
 ## Mises à jour firmware
 
-Pylon-Monitor bénéficie de **mises à jour firmware gratuites à vie** : téléchargez le `.bin` et installez-le depuis le tableau de bord web de l'appareil — aucun câble, aucun outil de reflashage. Changelog et instructions : **[pylon-monitor.com/fr/firmware](https://pylon-monitor.com/fr/firmware)**.
+Pylon-Monitor bénéficie de **mises à jour firmware gratuites à vie**, installées depuis le tableau de bord de l'appareil — aucun câble, aucun outil de flashage, réglages conservés.
 
-**Dernière version : v2.2** — une passe de fiabilité multi-firmware/multi-modèles. L'analyse des réponses console retrouve désormais les valeurs par nom de colonne plutôt que par position fixe (voir [Dans les coulisses](#dans-les-coulisses--conçu-pour-les-vraies-variations-de-firmware-pylontech) ci-dessus), le SOC combiné sur les packs à modèles mélangés est désormais pondéré par capacité, et la page de diagnostic `/raw` est désormais sûre en mémoire sur les grandes chaînes de batteries. Changelog complet : **[pylon-monitor.com/fr/firmware#changelog](https://pylon-monitor.com/fr/firmware#changelog)**.
+- **En un clic** (générations 1 et 2) : *Update firmware* → **Update now**, et l'appareil télécharge et installe la dernière version de sa génération.
+- **À la main :** téléchargez le `.bin` de votre modèle sur **[pylon-monitor.com/fr/firmware](https://pylon-monitor.com/fr/firmware)** — un onglet par modèle — et envoyez-le depuis la même page.
+- **Récupération :** si un appareil est injoignable ou ne démarre plus, l'**[outil de récupération USB](https://pylon-monitor.com/fr/reset)** le réinstalle depuis le navigateur par USB et détecte tout seul la génération matérielle.
+
+Versions actuelles (26 septembre 2026) :
+
+| Modèle | Firmware | Nouveautés |
+|---|---|---|
+| Génération 2 (avec écran) | **v3.3.3** | WiFi plus stable : plus de relance automatique du WiFi, et la puissance d'émission n'est baissée que sur les appareils dont les envois bloquent près de la box. |
+| Lite (sans écran) | **Lite v1.0.2** | Les mêmes correctifs WiFi que la v3.3.3. |
+| Génération 1 (avec écran) | **v3.0** | Beaucoup moins de mémoire utilisée, conçue pour les packs de plusieurs batteries avec MQTT et le JSON public activés. |
+
+Historique complet et téléchargements : **[pylon-monitor.com/fr/firmware](https://pylon-monitor.com/fr/firmware)**.
 
 ## Questions fréquentes
 
@@ -247,6 +279,12 @@ Non. La configuration, le tableau de bord et l'API sont 100 % locaux. Aucun comp
 
 **Quelles langues le site officiel prend-il en charge ?**
 Anglais, français, allemand, néerlandais, espagnol et italien — voir [Langues disponibles](#langues-disponibles).
+
+**Est-ce que ça marche avec les Pylontech haute tension (Force H2, H48050) ?**
+Oui, depuis le firmware 2.8, sur les appareils de génération 2 (expédiés à partir du 5 septembre 2026) et sur la Lite. L'état de santé et le nombre de cycles affichent un tiret, car l'unité de gestion ne les donne pas. Les appareils de génération 1 lisent uniquement la série US basse tension.
+
+**Quel fichier firmware me faut-il ?**
+Un par modèle : génération 2 (avec écran, expédié à partir du 5 septembre 2026), génération 1 (avec écran, expédié avant cette date) ou Lite (sans écran). Votre appareil affiche sa génération sur sa propre page *Update firmware*, et la [page firmware](https://pylon-monitor.com/fr/firmware) a un onglet par modèle.
 
 Plus de questions traitées sur **[pylon-monitor.com/fr/faq](https://pylon-monitor.com/fr/faq)**.
 
@@ -278,6 +316,8 @@ Le [site officiel](https://pylon-monitor.com) et ce dépôt sont entièrement di
 - [Guide d'installation](https://pylon-monitor.com/fr/installation) — configuration complète & dépannage
 - [Intégration Home Assistant](https://pylon-monitor.com/fr/home-assistant) — configuration détaillée MQTT/REST, référence des topics, exemples de payloads
 - [Firmware](https://pylon-monitor.com/fr/firmware) — changelog & instructions de mise à jour
+- [Outil de récupération USB](https://pylon-monitor.com/fr/reset) — réinstaller un appareil par USB depuis le navigateur
+- [Pylon-Monitor vs PylonCheck](https://pylon-monitor.com/fr/compare) — comparaison point par point
 - [FAQ](https://pylon-monitor.com/fr/faq)
 - [Contact](https://pylon-monitor.com/fr/contact)
 
