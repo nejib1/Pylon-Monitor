@@ -63,7 +63,7 @@ De meeste manieren om de interne status van een Pylontech-accu uit te lezen vere
 
 | Functie | Beschrijving |
 |---|---|
-| **JSON REST-API** | `GET /api.json` geeft SOC, SOH, spanning, stroom, vermogen, status, celspanningen, detail per accu, temperaturen, WiFi-/MQTT-status en meer als gestructureerde JSON — geen authenticatie nodig op het lokale netwerk, klaar voor Home Assistant, Node-RED, Jeedom, Domoticz, openHAB of uw eigen scripts. |
+| **JSON REST-API** | `GET /api.json` geeft SOC, SOH, spanning, stroom, vermogen, status, celspanningen, detail per accu, temperaturen, WiFi-/MQTT-status en meer als gestructureerde JSON — beveiligd met de toegangssleutel van het apparaat (`?key=…`), klaar voor Home Assistant, Node-RED, Jeedom, Domoticz, openHAB of uw eigen scripts. |
 | **Home Assistant, MQTT auto-discovery** | Vul de IP en inloggegevens van uw MQTT-broker in en 10 sensoren verschijnen automatisch — SOC, SOH, spanning, stroom, vermogen, accu- & MOSFET-temperatuur, cycli, status en celonbalans — gegroepeerd onder één apparaatkaart, plus een online/offline-beschikbaarheidssignaal. **Geen YAML.** |
 | **Webdashboard** | Live kaarten verversen elke paar seconden zonder ooit de pagina te herladen: Lading (SOC, spanning, stroom, vermogen, status), Gezondheid (SOH, cycli, celonbalans, laad-/ontlaadtellers), Temperaturen (basis & MOSFET), Systeem (IP, WiFi-signaal, MQTT-status, uptime), Cellen & 24u-laadgeschiedenisgrafiek. |
 | **Ingebouwd TFT-scherm, zelfherstellend** | Een 1,8"-IPS-scherm toont de laadtoestand in grote cijfers, met spanning/stroom ernaast en SOH/cycli/temperatuur eronder — volledig aanpasbaar, en wordt automatisch opnieuw geïnitialiseerd zodat een stroomstoring het nooit laat vastlopen. |
@@ -79,7 +79,7 @@ Volledige, geïllustreerde functielijst: **[pylon-monitor.com/nl/features](https
 
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Live web-dashboard van Pylon-Monitor met lading, gezondheid, temperaturen, cellen en 24u-geschiedenis van de Pylontech-accu" width="480">
-  <br><sub>Het live webdashboard — standaard geen inlogscherm, ververst elke paar seconden.</sub>
+  <br><sub>Het live webdashboard — beveiligd met uw eigen wachtwoord, ververst elke paar seconden.</sub>
 </p>
 
 <p align="center">
@@ -138,7 +138,7 @@ Pylon-Monitor is zo ontworpen dat **iedereen het in minder dan twee minuten kan 
 2. **Geef stroom** aan het apparaat — het TFT-scherm licht op en het apparaat start op in WiFi-instelmodus.
 3. **Sluit aan** op het tijdelijke WiFi-netwerk dat het uitzendt (`PylonMonitor-Setup`) vanaf uw telefoon of laptop.
 4. **Kies** uw thuisnetwerk en voer het wachtwoord in op het captive portal dat automatisch opent.
-5. **Klaar.** Het apparaat herstart op uw netwerk, het TFT-scherm toont het nieuwe IP-adres, en het dashboard is live op `http://<apparaat-ip>` of `http://pylon-monitor.local`.
+5. **Klaar.** Het apparaat herstart op uw netwerk, het TFT-scherm toont het nieuwe IP-adres, en het dashboard is live op `http://<apparaat-ip>` of `http://pylon-monitor.local`. De eerste keer wordt u gevraagd een eigen wachtwoord aan te maken (er is geen standaardwachtwoord).
 
 > **Pylon-Monitor Lite (zonder scherm):** de stappen zijn dezelfde. Om het apparaat na stap 5 te vinden, opent u `http://pylon-monitor.local` of zoekt u het in de lijst met verbonden apparaten van uw router.
 
@@ -149,7 +149,7 @@ Geen firmware flashen, geen drivers, geen app van derden nodig voor deze stap. B
 De kern van elke integratie is één endpoint:
 
 ```
-GET http://<apparaat-ip>/api.json
+GET http://<apparaat-ip>/api.json?key=<access-key>
 ```
 
 - Geen authenticatie nodig op het lokale netwerk — ontworpen om te worden bevraagd door domoticaplatforms en scripts.
@@ -220,14 +220,14 @@ Volledige handleiding met screenshots: **[pylon-monitor.com/nl/home-assistant](h
 **Pylontech Jeedom-bewaking** in drie stappen:
 
 1. Installeer de **JSON**-plugin uit de Jeedom-pluginwinkel.
-2. Richt een apparaat op `http://<apparaat-ip>/api.json`.
+2. Richt een apparaat op `http://<apparaat-ip>/api.json?key=<access-key>`.
 3. Koppel JSON-paden aan Jeedom-commando's — bijv. `summary>soc`, `summary>voltage`, `summary>state`, `net>rssi`.
 
 Zie [`examples/jeedom-json-plugin.md`](examples/jeedom-json-plugin.md) voor een uitgewerkt voorbeeld.
 
 ## Node-RED-integratie
 
-Gebruik een **http request**-node — methode `GET`, URL `http://<apparaat-ip>/api.json`, retourtype *a parsed JSON object* — en lees vervolgens `msg.payload.summary.soc` (of een ander veld) verderop in de flow. Als MQTT op het apparaat is geconfigureerd, kunt u ook rechtstreeks abonneren op `pylon-monitor/state` met een MQTT-in-node — geen polling nodig. Zie [`examples/node-red-http-request.md`](examples/node-red-http-request.md).
+Gebruik een **http request**-node — methode `GET`, URL `http://<apparaat-ip>/api.json?key=<access-key>`, retourtype *a parsed JSON object* — en lees vervolgens `msg.payload.summary.soc` (of een ander veld) verderop in de flow. Als MQTT op het apparaat is geconfigureerd, kunt u ook rechtstreeks abonneren op `pylon-monitor/state` met een MQTT-in-node — geen polling nodig. Zie [`examples/node-red-http-request.md`](examples/node-red-http-request.md).
 
 ## Domoticz, openHAB & elk HTTP/JSON-platform
 
@@ -238,7 +238,7 @@ Omdat de data eenvoudige, ongeauthenticeerde JSON is over lokale HTTP, kan **elk
 - **Standaard lokaal.** Uit de doos praat het apparaat alleen met uw lokale netwerk en met de accu: geen account, geen telemetrie, geen abonnement. Installatie, dashboard, API en MQTT werken zonder internettoegang.
 - **Cloud alleen als u wilt.** De link op afstand en de cloudgeschiedenis zijn één vinkje in de instellingen, standaard uit. Ingeschakeld gaan de metingen naar een privélink beveiligd met uw eigen sleutel; uitgeschakeld stopt het publiceren direct. Niets anders is ervan afhankelijk.
 - **Console-poort is alleen-lezen.** Pylon-Monitor *leest* alleen accutelemetrie uit — het stuurt nooit besturings- of laadcommando's, dus het heeft geen invloed op de garantie van fabrikant Pylontech en kan het gedrag van de accu niet wijzigen. Het is een bewakings- en diagnosetool, geen batterijmanagementsysteem (BMS) of laadregelaar.
-- **Optionele dashboardlogin.** Het webdashboard heeft standaard geen inlogscherm (handig op een vertrouwd thuisnetwerk); een wachtwoord kan worden ingeschakeld in Settings voor gedeelde of minder vertrouwde netwerken.
+- **Wachtwoord altijd vereist.** U maakt het aan bij de eerste toegang — er is geen standaardwachtwoord — zoals de Europese cyberbeveiligingsregels voor verbonden apparaten vereisen (RED-richtlijn, EN 18031). Tools die `/api.json` lezen, gebruiken de toegangssleutel uit *Settings → Public JSON access*. Vergeten? Druk 3 keer op de resetknop (generatie 2 en Lite: 3 keer de USB-kabel loskoppelen werkt ook) om terug te gaan naar de fabrieksinstellingen.
 - **Updates alleen als u erom vraagt.** Het apparaat werkt zichzelf nooit ongemerkt bij: het neemt alleen contact op met de updateserver als u op **Update now** klikt, of installeert een `.bin` die u zelf uploadt.
 
 ## Firmware-updates
@@ -253,9 +253,9 @@ Huidige versies (26 september 2026):
 
 | Model | Firmware | Nieuw |
 |---|---|---|
-| Generatie 2 (met scherm) | **v3.3.3** | Stabielere wifi: geen automatische wifi-herstarts meer, en het zendvermogen wordt alleen verlaagd op apparaten waarvan de verzendingen dicht bij de router haperen. |
-| Lite (zonder scherm) | **Lite v1.0.2** | Dezelfde wifi-correcties als v3.3.3. |
-| Generatie 1 (met scherm) | **v3.0** | Veel minder geheugengebruik, gemaakt voor packs met meerdere accu's met MQTT en de publieke JSON ingeschakeld. |
+| Generatie 2 (met scherm) | **v3.4.0** | Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
+| Lite (zonder scherm) | **Lite v1.1.0** | Dezelfde wijzigingen als v3.4.0. |
+| Generatie 1 (met scherm) | **v3.1** | Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig. Dezelfde geheugenzuinige basis als v3.0. |
 
 Volledig changelog en downloads: **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)**.
 

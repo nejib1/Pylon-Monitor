@@ -67,7 +67,7 @@ La mayoría de las formas de leer el estado interno de una batería Pylontech re
 
 | Característica | Descripción |
 |---|---|
-| **API REST JSON** | `GET /api.json` devuelve SOC, SOH, voltaje, corriente, potencia, estado, voltajes por celda, detalle por batería, temperaturas, estado WiFi/MQTT y más en JSON estructurado — sin autenticación necesaria en la red local, listo para Home Assistant, Node-RED, Jeedom, Domoticz, openHAB o sus propios scripts. |
+| **API REST JSON** | `GET /api.json` devuelve SOC, SOH, voltaje, corriente, potencia, estado, voltajes por celda, detalle por batería, temperaturas, estado WiFi/MQTT y más en JSON estructurado — protegido por la clave de acceso del dispositivo (`?key=…`), listo para Home Assistant, Node-RED, Jeedom, Domoticz, openHAB o sus propios scripts. |
 | **Home Assistant, auto-descubrimiento MQTT** | Introduzca la IP y las credenciales de su broker MQTT y aparecen automáticamente 10 sensores — SOC, SOH, voltaje, corriente, potencia, temperatura de batería y MOSFET, ciclos, estado y desequilibrio de celdas — agrupados bajo una única tarjeta de dispositivo, más una señal de disponibilidad en línea/fuera de línea. **Cero YAML.** |
 | **Panel web** | Las tarjetas en vivo se actualizan cada pocos segundos sin recargar nunca la página: Carga (SOC, voltaje, corriente, potencia, estado), Salud (SOH, ciclos, desequilibrio de celdas, contadores de carga/descarga), Temperaturas (base y MOSFET), Sistema (IP, señal WiFi, estado MQTT, tiempo de actividad), Celdas e historial de carga de 24 h. |
 | **Pantalla TFT integrada, autorreparable** | Una pantalla IPS de 1,8" muestra el Estado de Carga en cifras enormes, con voltaje/corriente al lado y SOH/ciclos/temperatura debajo — totalmente personalizable, y se reinicializa automáticamente para que un fallo de alimentación nunca la deje bloqueada. |
@@ -83,7 +83,7 @@ Lista completa e ilustrada: **[pylon-monitor.com/es/features](https://pylon-moni
 
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Panel web en directo de Pylon-Monitor mostrando carga, salud, temperaturas, celdas e historial de 24h de la batería Pylontech" width="480">
-  <br><sub>El panel web en directo — sin pantalla de inicio de sesión por defecto, se actualiza cada pocos segundos.</sub>
+  <br><sub>El panel web en directo — protegido por su propia contraseña, se actualiza cada pocos segundos.</sub>
 </p>
 
 <p align="center">
@@ -142,7 +142,7 @@ Pylon-Monitor está diseñado para que **cualquiera pueda configurarlo en menos 
 2. **Alimente** el dispositivo — la pantalla TFT se enciende y el dispositivo arranca en modo de configuración WiFi.
 3. **Únase** a la red WiFi temporal que difunde (`PylonMonitor-Setup`) desde su teléfono u ordenador.
 4. **Elija** su red WiFi doméstica e introduzca su contraseña en el portal cautivo que se abre automáticamente.
-5. **Listo.** El dispositivo se reinicia en su red, la pantalla TFT muestra su nueva dirección IP, y el panel está disponible en `http://<ip-del-dispositivo>` o `http://pylon-monitor.local`.
+5. **Listo.** El dispositivo se reinicia en su red, la pantalla TFT muestra su nueva dirección IP, y el panel está disponible en `http://<ip-del-dispositivo>` o `http://pylon-monitor.local`. La primera vez, le pide crear su propia contraseña (no existe contraseña por defecto).
 
 > **Pylon-Monitor Lite (sin pantalla):** los pasos son los mismos. Para encontrar el equipo tras el paso 5, abra `http://pylon-monitor.local` o búsquelo en la lista de dispositivos conectados de su router.
 
@@ -153,7 +153,7 @@ No se necesita flasheo de firmware, ni controladores, ni ninguna app de terceros
 El núcleo de toda integración es un único endpoint:
 
 ```
-GET http://<ip-del-dispositivo>/api.json
+GET http://<ip-del-dispositivo>/api.json?key=<access-key>
 ```
 
 - No requiere autenticación en la red local — diseñado para ser consultado por plataformas domóticas y scripts.
@@ -224,14 +224,14 @@ Guía completa con capturas de pantalla: **[pylon-monitor.com/es/home-assistant]
 **Monitorización Pylontech Jeedom** en tres pasos:
 
 1. Instale el plugin **JSON** desde la tienda de plugins de Jeedom.
-2. Apunte un equipo a `http://<ip-del-dispositivo>/api.json`.
+2. Apunte un equipo a `http://<ip-del-dispositivo>/api.json?key=<access-key>`.
 3. Asocie rutas JSON a comandos de Jeedom — p. ej. `summary>soc`, `summary>voltage`, `summary>state`, `net>rssi`.
 
 Vea [`examples/jeedom-json-plugin.md`](examples/jeedom-json-plugin.md) para un ejemplo detallado.
 
 ## Integración con Node-RED
 
-Use un nodo **http request** — método `GET`, URL `http://<ip-del-dispositivo>/api.json`, tipo de retorno *a parsed JSON object* — y luego lea `msg.payload.summary.soc` (o cualquier otro campo) más adelante en el flujo. Si MQTT está configurado en el dispositivo, también puede suscribirse directamente a `pylon-monitor/state` con un nodo MQTT-in — sin necesidad de sondeo. Vea [`examples/node-red-http-request.md`](examples/node-red-http-request.md).
+Use un nodo **http request** — método `GET`, URL `http://<ip-del-dispositivo>/api.json?key=<access-key>`, tipo de retorno *a parsed JSON object* — y luego lea `msg.payload.summary.soc` (o cualquier otro campo) más adelante en el flujo. Si MQTT está configurado en el dispositivo, también puede suscribirse directamente a `pylon-monitor/state` con un nodo MQTT-in — sin necesidad de sondeo. Vea [`examples/node-red-http-request.md`](examples/node-red-http-request.md).
 
 ## Domoticz, openHAB y cualquier plataforma HTTP/JSON
 
@@ -242,7 +242,7 @@ Dado que los datos son JSON simple y sin autenticar sobre HTTP local, **cualquie
 - **Local por defecto.** Recién sacado de la caja, el equipo solo habla con su red local y con la batería: sin cuenta, sin telemetría, sin suscripción. Configuración, panel, API y MQTT funcionan sin acceso a internet.
 - **La nube se elige.** El enlace remoto y el historial en la nube son una casilla en los ajustes, desactivada por defecto. Activada, las lecturas van a un enlace privado protegido por su propia clave; desactívela y la publicación se detiene al instante. Nada más depende de ella.
 - **El puerto Console es de solo lectura.** Pylon-Monitor solo *lee* la telemetría de la batería — nunca envía comandos de control o de carga, por lo que no afecta a la garantía del fabricante Pylontech y no puede alterar el comportamiento de la batería. Es una herramienta de monitorización y diagnóstico, no un sistema de gestión de baterías (BMS) ni un regulador de carga.
-- **Inicio de sesión del panel opcional.** El panel web no tiene pantalla de inicio de sesión por defecto (cómodo en una LAN doméstica de confianza); se puede activar una contraseña en Settings para redes compartidas o menos fiables.
+- **Contraseña siempre obligatoria.** Usted la crea en el primer acceso — no existe contraseña por defecto — como exige la normativa europea de ciberseguridad para objetos conectados (directiva RED, EN 18031). Las herramientas que leen `/api.json` usan la clave de acceso de *Settings → Public JSON access*. ¿La olvidó? Pulse 3 veces el botón de reinicio (generación 2 y Lite: desconectar el cable USB 3 veces también sirve) para volver a los ajustes de fábrica.
 - **Actualizaciones solo cuando usted lo pide.** El equipo nunca se actualiza a sus espaldas: solo contacta con el servidor de actualizaciones cuando hace clic en **Update now**, o instala un `.bin` que usted mismo sube.
 
 ## Actualizaciones de firmware
@@ -257,9 +257,9 @@ Versiones actuales (26 de septiembre de 2026):
 
 | Modelo | Firmware | Novedades |
 |---|---|---|
-| Generación 2 (con pantalla) | **v3.3.3** | WiFi más estable: sin reinicios automáticos del WiFi, y la potencia de emisión solo se baja en los equipos cuyos envíos se bloquean cerca del router. |
-| Lite (sin pantalla) | **Lite v1.0.2** | Las mismas correcciones WiFi que la v3.3.3. |
-| Generación 1 (con pantalla) | **v3.0** | Mucha menos memoria usada, pensada para packs de varias baterías con MQTT y el JSON público activados. |
+| Generación 2 (con pantalla) | **v3.4.0** | Contraseña obligatoria (EN 18031), creada por usted en el primer acceso; las herramientas REST necesitan la clave de acceso; datos del Cloud por HTTPS con certificado verificado. |
+| Lite (sin pantalla) | **Lite v1.1.0** | Los mismos cambios que la v3.4.0. |
+| Generación 1 (con pantalla) | **v3.1** | Contraseña obligatoria (EN 18031), creada por usted en el primer acceso; las herramientas REST necesitan la clave de acceso. Misma base ligera en memoria que la v3.0. |
 
 Historial completo y descargas: **[pylon-monitor.com/es/firmware](https://pylon-monitor.com/es/firmware)**.
 

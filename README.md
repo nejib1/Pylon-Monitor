@@ -67,7 +67,7 @@ Most ways of reading a Pylontech battery's internal state require a laptop plugg
 
 | Feature | Description |
 |---|---|
-| **JSON REST API** | `GET /api.json` returns SOC, SOH, voltage, current, power, state, per-cell voltages, per-battery detail, temperatures, WiFi/MQTT status and more as structured JSON — no authentication required on the local network, ready for Home Assistant, Node-RED, Jeedom, Domoticz, openHAB or your own scripts. |
+| **JSON REST API** | `GET /api.json` returns SOC, SOH, voltage, current, power, state, per-cell voltages, per-battery detail, temperatures, WiFi/MQTT status and more as structured JSON — protected by the device's access key (`?key=…`), ready for Home Assistant, Node-RED, Jeedom, Domoticz, openHAB or your own scripts. |
 | **Home Assistant, MQTT auto-discovery** | Fill in your MQTT broker's IP and credentials and 10 sensors appear automatically — SOC, SOH, voltage, current, power, battery & MOSFET temperature, cycles, state and cell imbalance — grouped under one device card, plus an online/offline availability signal. **Zero YAML.** |
 | **Web dashboard** | Live cards refresh every few seconds without reloading the page: Charge (SOC, voltage, current, power, state), Health (SOH, cycles, cell imbalance, charge/discharge counts), Temperatures (base & MOSFET), System (IP, WiFi signal, MQTT status, uptime), Cells & 24h charge history graph. |
 | **Built-in TFT display, self-healing** | A 1.8" IPS screen shows State of Charge in giant digits with voltage/current beside it and SOH/cycles/temperature below — fully customizable, and re-initialised automatically so a power glitch never leaves it stuck. |
@@ -83,7 +83,7 @@ Full, illustrated feature list: **[pylon-monitor.com/features](https://pylon-mon
 
 <p align="center">
   <img src="https://pylon-monitor.com/assets/img/screenshots/dashboard-pylontech-monitor.png" alt="Pylon-Monitor live web dashboard showing Pylontech battery charge, health, temperatures, cells and 24h history" width="480">
-  <br><sub>The live web dashboard — no login screen by default, refreshes every few seconds.</sub>
+  <br><sub>The live web dashboard — protected by your own password, refreshes every few seconds.</sub>
 </p>
 
 <p align="center">
@@ -142,7 +142,7 @@ Pylon-Monitor is designed so that **anyone can set it up in under two minutes**,
 2. **Power** the device — the TFT screen lights up and the device boots into WiFi setup mode.
 3. **Join** the temporary WiFi network it broadcasts (`PylonMonitor-Setup`) from your phone or laptop.
 4. **Pick** your home WiFi network and enter its password in the captive portal that opens automatically.
-5. **Done.** The device reboots onto your network, the TFT shows its new IP address, and the dashboard is live at `http://<device-ip>` or `http://pylon-monitor.local`.
+5. **Done.** The device reboots onto your network, the TFT shows its new IP address, and the dashboard is live at `http://<device-ip>` or `http://pylon-monitor.local`. The first time, it asks you to create your own password (there is no default password).
 
 > **Pylon-Monitor Lite (no screen):** the steps are the same. To find the device after step 5, open `http://pylon-monitor.local` or look for it in your router's list of connected devices.
 
@@ -153,7 +153,7 @@ No firmware flashing, no drivers, no third-party app required for this step. Con
 The core of every integration is one endpoint:
 
 ```
-GET http://<device-ip>/api.json
+GET http://<device-ip>/api.json?key=<access-key>
 ```
 
 - No authentication required on the local network — it's designed to be polled by home-automation platforms and scripts.
@@ -224,14 +224,14 @@ Full walkthrough with screenshots: **[pylon-monitor.com/home-assistant](https://
 **Pylontech Jeedom monitoring** in three steps:
 
 1. Install the **JSON** plugin from the Jeedom plugin store.
-2. Point an equipment at `http://<device-ip>/api.json`.
+2. Point an equipment at `http://<device-ip>/api.json?key=<access-key>`.
 3. Map JSON paths to Jeedom commands — e.g. `summary>soc`, `summary>voltage`, `summary>state`, `net>rssi`.
 
 See [`examples/jeedom-json-plugin.md`](examples/jeedom-json-plugin.md) for a worked example.
 
 ## Node-RED integration
 
-Use an **http request** node — method `GET`, URL `http://<device-ip>/api.json`, return type *a parsed JSON object* — then read `msg.payload.summary.soc` (or any other field) downstream. If MQTT is configured on the device, you can also subscribe directly to `pylon-monitor/state` with an MQTT-in node — no polling required. See [`examples/node-red-http-request.md`](examples/node-red-http-request.md).
+Use an **http request** node — method `GET`, URL `http://<device-ip>/api.json?key=<access-key>`, return type *a parsed JSON object* — then read `msg.payload.summary.soc` (or any other field) downstream. If MQTT is configured on the device, you can also subscribe directly to `pylon-monitor/state` with an MQTT-in node — no polling required. See [`examples/node-red-http-request.md`](examples/node-red-http-request.md).
 
 ## Domoticz, openHAB & any HTTP/JSON platform
 
@@ -242,7 +242,7 @@ Because the data is plain, unauthenticated JSON over local HTTP, **any platform 
 - **Local by default.** Out of the box the device talks only to your local network and to the battery: no account, no telemetry, no subscription. Setup, dashboard, API and MQTT all work without internet access.
 - **Cloud is opt-in.** The remote link and cloud history are one checkbox in Settings, off by default. When switched on, readings go to a private link protected by your own access key; switch it off and publishing stops immediately. Nothing else depends on it.
 - **Console port is read-only.** Pylon-Monitor only *reads* battery telemetry — it never sends control or charging commands, so it does not affect the Pylontech manufacturer's warranty and cannot alter battery behaviour. It is a monitoring and diagnostics tool, not a battery management system (BMS) or charge controller.
-- **Optional dashboard login.** The web dashboard has no login screen by default (convenient on a trusted home LAN); a password can be enabled in Settings for shared or less-trusted networks.
+- **Password always required.** You create it on first access — there is no default password — as required by European cybersecurity rules for connected devices (RED directive, EN 18031). Tools reading `/api.json` use the access key from *Settings → Public JSON access*. Forgot it? Press the reset button 3 times (generation 2 and Lite: unplugging the USB cable 3 times works too) to return to factory settings.
 - **Updates only when you ask.** The device never updates itself behind your back: it contacts the update server only when you click **Update now**, or installs a `.bin` you upload yourself.
 
 ## Firmware updates
@@ -257,9 +257,9 @@ Current versions (26 September 2026):
 
 | Model | Firmware | What's new |
 |---|---|---|
-| Generation 2 (with screen) | **v3.3.3** | Steadier WiFi: no more automatic WiFi restarts, and transmit power is lowered only on devices whose sends stall near the router. |
-| Lite (no screen) | **Lite v1.0.2** | The same WiFi fixes as v3.3.3. |
-| Generation 1 (with screen) | **v3.0** | Much lower memory use, built for packs of several batteries with MQTT and the public JSON switched on. |
+| Generation 2 (with screen) | **v3.4.0** | Password required (EN 18031), created by you on first access; REST tools need the access key; cloud data sent over HTTPS with a verified certificate. |
+| Lite (no screen) | **Lite v1.1.0** | The same changes as v3.4.0. |
+| Generation 1 (with screen) | **v3.1** | Password required (EN 18031), created by you on first access; REST tools need the access key. Same memory-light base as v3.0. |
 
 Full changelog and downloads: **[pylon-monitor.com/firmware](https://pylon-monitor.com/firmware)**.
 
