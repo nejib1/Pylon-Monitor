@@ -253,9 +253,9 @@ Versioni attuali (26 settembre 2026):
 
 | Modello | Firmware | Novità |
 |---|---|---|
-| Generazione 2 (con schermo) | **v3.4.0** | Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso; dati del Cloud in HTTPS con certificato verificato. |
-| Lite (senza schermo) | **Lite v1.1.0** | Le stesse modifiche della v3.4.0. |
-| Generazione 1 (con schermo) | **v3.1** | Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso. Stessa base leggera in memoria della v3.0. |
+| Generazione 2 (con schermo) | **v3.4.1** | Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso; dati del Cloud in HTTPS con certificato verificato. |
+| Lite (senza schermo) | **Lite v1.1.1** | Le stesse modifiche della v3.4.1. |
+| Generazione 1 (con schermo) | **v3.1.2** | Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso. Stessa base leggera in memoria della v3.0. |
 
 Cronologia completa e download: **[pylon-monitor.com/it/firmware](https://pylon-monitor.com/it/firmware)**.
 
