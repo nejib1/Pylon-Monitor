@@ -257,7 +257,7 @@ Current versions (26 September 2026):
 
 | Model | Firmware | What's new |
 |---|---|---|
-| Generation 2 (with screen) | **v3.4.2** | Wakes up batteries whose console stays silent after a power cut (1200 baud mode). Password required (EN 18031), created by you on first access; REST tools need the access key; cloud data sent over HTTPS with a verified certificate. |
+| Generation 2 (with screen) | **v3.4.2** | Wakes up batteries whose console stays silent after a power cut (1200 baud mode). Reconnects the WiFi by itself when it drops for good. Password required (EN 18031), created by you on first access; REST tools need the access key; cloud data sent over HTTPS with a verified certificate. |
 | Lite (no screen) | **Lite v1.1.2** | The same changes as v3.4.2. |
 | Generation 1 (with screen) | **v3.1.2** | Password required (EN 18031), created by you on first access; REST tools need the access key. Same memory-light base as v3.0. |
 
