@@ -253,8 +253,8 @@ Huidige versies (26 september 2026):
 
 | Model | Firmware | Nieuw |
 |---|---|---|
-| Generatie 2 (met scherm) | **v3.4.1** | Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
-| Lite (zonder scherm) | **Lite v1.1.1** | Dezelfde wijzigingen als v3.4.1. |
+| Generatie 2 (met scherm) | **v3.4.2** | Maakt accu’s wakker waarvan de console na een stroomstoring stil blijft (1200-baudmodus). Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
+| Lite (zonder scherm) | **Lite v1.1.2** | Dezelfde wijzigingen als v3.4.2. |
 | Generatie 1 (met scherm) | **v3.1.2** | Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig. Dezelfde geheugenzuinige basis als v3.0. |
 
 Volledig changelog en downloads: **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)**.
