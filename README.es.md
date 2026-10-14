@@ -257,8 +257,8 @@ Versiones actuales (26 de septiembre de 2026):
 
 | Modelo | Firmware | Novedades |
 |---|---|---|
-| Generación 2 (con pantalla) | **v3.4.2** | Despierta las baterías cuya consola no responde tras un corte de luz (modo 1200 baudios). Restablece el WiFi por sí solo si se queda colgado. Contraseña obligatoria (EN 18031), creada por usted en el primer acceso; las herramientas REST necesitan la clave de acceso; datos del Cloud por HTTPS con certificado verificado. |
-| Lite (sin pantalla) | **Lite v1.1.2** | Los mismos cambios que la v3.4.2. |
+| Generación 2 (con pantalla) | **v3.4.3** | Despierta las baterías cuya consola no responde tras un corte de luz (modo 1200 baudios). Restablece el WiFi por sí solo si se queda colgado. Contraseña obligatoria (EN 18031), creada por usted en el primer acceso; las herramientas REST necesitan la clave de acceso; datos del Cloud por HTTPS con certificado verificado. |
+| Lite (sin pantalla) | **Lite v1.1.3** | Los mismos cambios que la v3.4.3. |
 | Generación 1 (con pantalla) | **v3.1.2** | Contraseña obligatoria (EN 18031), creada por usted en el primer acceso; las herramientas REST necesitan la clave de acceso. Misma base ligera en memoria que la v3.0. |
 
 Historial completo y descargas: **[pylon-monitor.com/es/firmware](https://pylon-monitor.com/es/firmware)**.

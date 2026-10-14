@@ -6,7 +6,7 @@
 
 [🇬🇧 English](README.md) | 🇫🇷 Français | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-10-08 22:01:02 UTC
+**Last updated:** 2026-10-14 08:24:02 UTC
 
 [![Site officiel](https://img.shields.io/badge/site%20officiel-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licence docs](https://img.shields.io/badge/licence%20docs-CC--BY--4.0-blue)](LICENSE) [![Langues](https://img.shields.io/badge/langues-6-green)](#langues-disponibles)
 
@@ -257,8 +257,8 @@ Versions actuelles (26 septembre 2026) :
 
 | Modèle | Firmware | Nouveautés |
 |---|---|---|
-| Génération 2 (avec écran) | **v3.4.2** | Réveille les batteries dont la console reste muette après une coupure (mode 1200 bauds). Relance le WiFi tout seul s’il ne revient pas. Mot de passe obligatoire (EN 18031), créé par vous au premier accès ; les outils REST ont besoin de la clé d'accès ; données du Cloud envoyées en HTTPS avec certificat vérifié. |
-| Lite (sans écran) | **Lite v1.1.2** | Les mêmes changements que la v3.4.2. |
+| Génération 2 (avec écran) | **v3.4.3** | Réveille les batteries dont la console reste muette après une coupure (mode 1200 bauds). Relance le WiFi tout seul s’il ne revient pas. Mot de passe obligatoire (EN 18031), créé par vous au premier accès ; les outils REST ont besoin de la clé d'accès ; données du Cloud envoyées en HTTPS avec certificat vérifié. |
+| Lite (sans écran) | **Lite v1.1.3** | Les mêmes changements que la v3.4.3. |
 | Génération 1 (avec écran) | **v3.1.2** | Mot de passe obligatoire (EN 18031), créé par vous au premier accès ; les outils REST ont besoin de la clé d'accès. Même base légère en mémoire que la v3.0. |
 
 Historique complet et téléchargements : **[pylon-monitor.com/fr/firmware](https://pylon-monitor.com/fr/firmware)**.
