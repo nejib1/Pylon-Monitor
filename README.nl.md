@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | 🇳🇱 Nederlands
 
-**Last updated:** 2026-10-25 08:02:01 UTC
+**Last updated:** 2026-10-26 10:51:02 UTC
 
 [![Officiële site](https://img.shields.io/badge/officiële%20site-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Docs-licentie](https://img.shields.io/badge/docs%20licentie-CC--BY--4.0-blue)](LICENSE) [![Talen](https://img.shields.io/badge/talen-6-green)](#beschikbare-talen)
 
@@ -253,8 +253,8 @@ Huidige versies (26 september 2026):
 
 | Model | Firmware | Nieuw |
 |---|---|---|
-| Generatie 2 (met scherm) | **v3.4.3** | Maakt accu’s wakker waarvan de console na een stroomstoring stil blijft (1200-baudmodus). Herstelt de wifiverbinding zelf als die blijft hangen. Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
-| Lite (zonder scherm) | **Lite v1.1.3** | Dezelfde wijzigingen als v3.4.3. |
+| Generatie 2 (met scherm) | **v3.4.4** | Maakt accu’s wakker waarvan de console na een stroomstoring stil blijft (1200-baudmodus). Herstelt de wifiverbinding zelf als die blijft hangen. Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
+| Lite (zonder scherm) | **Lite v1.1.4** | Dezelfde wijzigingen als v3.4.4. |
 | Generatie 1 (met scherm) | **v3.1.2** | Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig. Dezelfde geheugenzuinige basis als v3.0. |
 
 Volledig changelog en downloads: **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)**.
