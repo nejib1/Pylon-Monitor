@@ -6,7 +6,7 @@
 
 [🇬🇧 English](README.md) | 🇫🇷 Français | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-10-27 08:10:03 UTC
+**Last updated:** 2026-10-27 10:38:02 UTC
 
 [![Site officiel](https://img.shields.io/badge/site%20officiel-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licence docs](https://img.shields.io/badge/licence%20docs-CC--BY--4.0-blue)](LICENSE) [![Langues](https://img.shields.io/badge/langues-6-green)](#langues-disponibles)
 
