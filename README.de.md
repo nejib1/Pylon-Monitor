@@ -6,7 +6,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | 🇩🇪 Deutsch | [🇪🇸 Español](README.es.md) | [🇮🇹 Italiano](README.it.md) | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-10-31 02:17:01 UTC
+**Last updated:** 2026-10-31 21:09:02 UTC
 
 [![Offizielle Website](https://img.shields.io/badge/offizielle%20website-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Docs-Lizenz](https://img.shields.io/badge/docs%20lizenz-CC--BY--4.0-blue)](LICENSE) [![Sprachen](https://img.shields.io/badge/sprachen-6-green)](#verfügbare-sprachen)
 
@@ -257,8 +257,8 @@ Aktuelle Versionen (26. September 2026):
 
 | Modell | Firmware | Neu |
 |---|---|---|
-| Generation 2 (mit Bildschirm) | **v3.4.5** | Weckt Batterien auf, deren Konsole nach einem Stromausfall stumm bleibt (1200-Baud-Modus). Stellt die WLAN-Verbindung selbst wieder her, wenn sie hängen bleibt. Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel; Cloud-Daten per HTTPS mit geprüftem Zertifikat. |
-| Lite (ohne Bildschirm) | **Lite v1.1.5** | Dieselben Änderungen wie v3.4.5. |
+| Generation 2 (mit Bildschirm) | **v3.4.6** | Weckt Batterien auf, deren Konsole nach einem Stromausfall stumm bleibt (1200-Baud-Modus). Stellt die WLAN-Verbindung selbst wieder her, wenn sie hängen bleibt. Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel; Cloud-Daten per HTTPS mit geprüftem Zertifikat. |
+| Lite (ohne Bildschirm) | **Lite v1.1.6** | Dieselben Änderungen wie v3.4.6. |
 | Generation 1 (mit Bildschirm) | **v3.1.2** | Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel. Dieselbe speichersparende Basis wie v3.0. |
 
 Vollständiges Changelog und Downloads: **[pylon-monitor.com/de/firmware](https://pylon-monitor.com/de/firmware)**.
