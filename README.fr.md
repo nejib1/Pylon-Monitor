@@ -257,8 +257,8 @@ Versions actuelles (26 septembre 2026) :
 
 | Modèle | Firmware | Nouveautés |
 |---|---|---|
-| Génération 2 (avec écran) | **v3.4.6** | Réveille les batteries dont la console reste muette après une coupure (mode 1200 bauds). Relance le WiFi tout seul s’il ne revient pas. Mot de passe obligatoire (EN 18031), créé par vous au premier accès ; les outils REST ont besoin de la clé d'accès ; données du Cloud envoyées en HTTPS avec certificat vérifié. |
-| Lite (sans écran) | **Lite v1.1.6** | Les mêmes changements que la v3.4.6. |
+| Génération 2 (avec écran) | **v3.4.7** | Réveille les batteries dont la console reste muette après une coupure (mode 1200 bauds). Relance le WiFi tout seul s’il ne revient pas. Mot de passe obligatoire (EN 18031), créé par vous au premier accès ; les outils REST ont besoin de la clé d'accès ; données du Cloud envoyées en HTTPS avec certificat vérifié. |
+| Lite (sans écran) | **Lite v1.1.7** | Les mêmes changements que la v3.4.7. |
 | Génération 1 (avec écran) | **v3.1.2** | Mot de passe obligatoire (EN 18031), créé par vous au premier accès ; les outils REST ont besoin de la clé d'accès. Même base légère en mémoire que la v3.0. |
 
 Historique complet et téléchargements : **[pylon-monitor.com/fr/firmware](https://pylon-monitor.com/fr/firmware)**.
