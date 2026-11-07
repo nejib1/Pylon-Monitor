@@ -257,8 +257,8 @@ Aktuelle Versionen (26. September 2026):
 
 | Modell | Firmware | Neu |
 |---|---|---|
-| Generation 2 (mit Bildschirm) | **v3.4.7** | Weckt Batterien auf, deren Konsole nach einem Stromausfall stumm bleibt (1200-Baud-Modus). Stellt die WLAN-Verbindung selbst wieder her, wenn sie hängen bleibt. Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel; Cloud-Daten per HTTPS mit geprüftem Zertifikat. |
-| Lite (ohne Bildschirm) | **Lite v1.1.7** | Dieselben Änderungen wie v3.4.7. |
+| Generation 2 (mit Bildschirm) | **v3.4.8** | Weckt Batterien auf, deren Konsole nach einem Stromausfall stumm bleibt (1200-Baud-Modus). Stellt die WLAN-Verbindung selbst wieder her, wenn sie hängen bleibt. Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel; Cloud-Daten per HTTPS mit geprüftem Zertifikat. |
+| Lite (ohne Bildschirm) | **Lite v1.1.8** | Dieselben Änderungen wie v3.4.8. |
 | Generation 1 (mit Bildschirm) | **v3.1.2** | Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel. Dieselbe speichersparende Basis wie v3.0. |
 
 Vollständiges Changelog und Downloads: **[pylon-monitor.com/de/firmware](https://pylon-monitor.com/de/firmware)**.
