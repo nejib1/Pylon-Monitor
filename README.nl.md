@@ -253,8 +253,8 @@ Huidige versies (26 september 2026):
 
 | Model | Firmware | Nieuw |
 |---|---|---|
-| Generatie 2 (met scherm) | **v3.5.0** | Eigen geheugen voor de beveiligde verbinding met het online dashboard (minder herstarts bij grote stapels). Nieuwe instelling Settings › Slave batteries voor slave-accu’s waarvan het BMS bij het uitlezen herstart. Maakt accu’s wakker waarvan de console na een stroomstoring stil blijft (1200-baudmodus). Herstelt de wifiverbinding zelf als die blijft hangen. Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
-| Lite (zonder scherm) | **Lite v1.2.0** | Dezelfde wijzigingen als v3.5.0. |
+| Generatie 2 (met scherm) | **v3.5.1** | Eigen geheugen voor de beveiligde verbinding met het online dashboard (minder herstarts bij grote stapels). Nieuwe instelling Settings › Slave batteries voor slave-accu’s waarvan het BMS bij het uitlezen herstart. Maakt accu’s wakker waarvan de console na een stroomstoring stil blijft (1200-baudmodus). Herstelt de wifiverbinding zelf als die blijft hangen. Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig; cloudgegevens via HTTPS met gecontroleerd certificaat. |
+| Lite (zonder scherm) | **Lite v1.2.1** | Dezelfde wijzigingen als v3.5.1. |
 | Generatie 1 (met scherm) | **v3.1.2** | Wachtwoord verplicht (EN 18031), door u aangemaakt bij de eerste toegang; REST-tools hebben de toegangssleutel nodig. Dezelfde geheugenzuinige basis als v3.0. |
 
 Volledig changelog en downloads: **[pylon-monitor.com/nl/firmware](https://pylon-monitor.com/nl/firmware)**.
