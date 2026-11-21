@@ -2,7 +2,7 @@
 
 [🇬🇧 English](README.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇪🇸 Español](README.es.md) | 🇮🇹 Italiano | [🇳🇱 Nederlands](README.nl.md)
 
-**Last updated:** 2026-11-14 13:31:01 UTC
+**Last updated:** 2026-11-21 19:13:01 UTC
 
 [![Sito ufficiale](https://img.shields.io/badge/sito%20ufficiale-pylon--monitor.com-D8571C)](https://pylon-monitor.com) [![Licenza docs](https://img.shields.io/badge/licenza%20docs-CC--BY--4.0-blue)](LICENSE) [![Lingue](https://img.shields.io/badge/lingue-6-green)](#lingue-disponibili)
 
@@ -253,8 +253,8 @@ Versioni attuali (26 settembre 2026):
 
 | Modello | Firmware | Novità |
 |---|---|---|
-| Generazione 2 (con schermo) | **v3.5.1** | Memoria propria per la connessione sicura alla dashboard online (meno riavvii sulle pile grandi). Nuova impostazione Settings › Slave batteries per le batterie slave il cui BMS si riavvia quando vengono lette. Risveglia le batterie la cui console resta muta dopo un’interruzione di corrente (modalità 1200 baud). Ripristina da solo il WiFi se resta bloccato. Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso; dati del Cloud in HTTPS con certificato verificato. |
-| Lite (senza schermo) | **Lite v1.2.1** | Le stesse modifiche della v3.5.1. |
+| Generazione 2 (con schermo) | **v3.5.3** | Memoria propria per la connessione sicura alla dashboard online (meno riavvii sulle pile grandi). Nuova impostazione Settings › Slave batteries per le batterie slave il cui BMS si riavvia quando vengono lette. Risveglia le batterie la cui console resta muta dopo un’interruzione di corrente (modalità 1200 baud). Ripristina da solo il WiFi se resta bloccato. Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso; dati del Cloud in HTTPS con certificato verificato. |
+| Lite (senza schermo) | **Lite v1.2.3** | Le stesse modifiche della v3.5.3. |
 | Generazione 1 (con schermo) | **v3.1.2** | Password obbligatoria (EN 18031), creata da voi al primo accesso; gli strumenti REST richiedono la chiave di accesso. Stessa base leggera in memoria della v3.0. |
 
 Cronologia completa e download: **[pylon-monitor.com/it/firmware](https://pylon-monitor.com/it/firmware)**.
