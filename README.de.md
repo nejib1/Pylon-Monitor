@@ -257,9 +257,9 @@ Aktuelle Versionen (26. September 2026):
 
 | Modell | Firmware | Neu |
 |---|---|---|
-| Generation 2 (mit Bildschirm) | **v3.5.4** | Eigener Speicher für die gesicherte Verbindung zum Online-Dashboard (weniger Neustarts bei großen Stapeln). Neue Einstellung Settings › Slave batteries für Slave-Batterien, deren BMS beim Auslesen neu startet. Weckt Batterien auf, deren Konsole nach einem Stromausfall stumm bleibt (1200-Baud-Modus). Stellt die WLAN-Verbindung selbst wieder her, wenn sie hängen bleibt. Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel; Cloud-Daten per HTTPS mit geprüftem Zertifikat. |
-| Lite (ohne Bildschirm) | **Lite v1.2.4** | Dieselben Änderungen wie v3.5.4. |
-| Generation 1 (mit Bildschirm) | **v3.1.2** | Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel. Dieselbe speichersparende Basis wie v3.0. |
+| Generation 2 (mit Bildschirm) | **v3.6.0** | Eigener Speicher für die gesicherte Verbindung zum Online-Dashboard (weniger Neustarts bei großen Stapeln). Neue Einstellung Settings › Slave batteries für Slave-Batterien, deren BMS beim Auslesen neu startet. Weckt Batterien auf, deren Konsole nach einem Stromausfall stumm bleibt (1200-Baud-Modus). Stellt die WLAN-Verbindung selbst wieder her, wenn sie hängen bleibt. Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel; Cloud-Daten per HTTPS mit geprüftem Zertifikat. |
+| Lite (ohne Bildschirm) | **Lite v1.3.0** | Dieselben Änderungen wie v3.6.0. |
+| Generation 1 (mit Bildschirm) | **v3.1.3** | Passwort erforderlich (EN 18031), von Ihnen beim ersten Aufruf erstellt; REST-Tools brauchen den Zugangsschlüssel. Dieselbe speichersparende Basis wie v3.0. |
 
 Vollständiges Changelog und Downloads: **[pylon-monitor.com/de/firmware](https://pylon-monitor.com/de/firmware)**.
 
